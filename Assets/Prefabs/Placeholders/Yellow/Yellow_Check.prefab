@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1731693522476830052}
   - component: {fileID: 1731693522476830073}
   - component: {fileID: 5335474149054965812}
+  - component: {fileID: -8189964451155864982}
   m_Layer: 5
   m_Name: Yellow_Check
   m_TagString: Untagged
@@ -116,4 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627cbb1d5871d2c409210140b8c01466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+--- !u!210 &-8189964451155864982
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731693522476830050}
+  m_Enabled: 1
+  m_SortingLayerID: 76638165
+  m_SortingLayer: 1
+  m_SortingOrder: 0

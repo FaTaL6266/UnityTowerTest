@@ -62,23 +62,21 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         }
     }
 
-    #region Apply Modules
     public IEnumerator ApplyModule(GameObject module, int moduleSlot)
     {
         // Check if a module is already applied in this slot
         if (!String.IsNullOrEmpty(modules[moduleSlot]))
         {
-            GameObject moduleToRemove = GameAssets.Instance.GetModuleAsset(modules[moduleSlot]);
-            Debug.Log(moduleToRemove.ToString());
             // If a module is already applied, remove its buff
+            GameObject moduleToRemove = GameAssets.Instance.GetModuleAsset(modules[moduleSlot]);
             switch (moduleToRemove.GetComponent<DragDrop>().moduleType)
             {
-                case ModuleType.HEALTH: this.health -= moduleToRemove.GetComponent<Health>().GetModifier(); Debug.Log("Health decreased");  break;
-                case ModuleType.PHYSICALDAMAGE: this.physicalDamage -= moduleToRemove.GetComponent<PhysicalDamage>().GetModifier(); Debug.Log("Physical damage decreased"); break;
-                case ModuleType.FIREDAMAGE: this.fireDamage -= moduleToRemove.GetComponent<FireDamage>().GetModifier(); Debug.Log("Fire damage decreased"); break;
-                case ModuleType.FIRERATE: this.fireRate -= moduleToRemove.GetComponent<FireRate>().GetModifier(); Debug.Log("Fire rate decreased"); break;
-                case ModuleType.PHYSICALRESISTANCE: this.physicalResistance -= moduleToRemove.GetComponent<PhysicalResistance>().GetModifier(); Debug.Log("Physical resistance decreased"); break;
-                case ModuleType.FIRERESISTANCE: this.fireResistance -= moduleToRemove.GetComponent<FireResistance>().GetModifier(); Debug.Log("Fire resistance decreased"); break;
+                case ModuleType.HEALTH: this.health -= moduleToRemove.GetComponent<Health>().GetModifier(); break;
+                case ModuleType.PHYSICALDAMAGE: this.physicalDamage -= moduleToRemove.GetComponent<PhysicalDamage>().GetModifier(); break;
+                case ModuleType.FIREDAMAGE: this.fireDamage -= moduleToRemove.GetComponent<FireDamage>().GetModifier(); break;
+                case ModuleType.FIRERATE: this.fireRate -= moduleToRemove.GetComponent<FireRate>().GetModifier(); break;
+                case ModuleType.PHYSICALRESISTANCE: this.physicalResistance -= moduleToRemove.GetComponent<PhysicalResistance>().GetModifier(); break;
+                case ModuleType.FIRERESISTANCE: this.fireResistance -= moduleToRemove.GetComponent<FireResistance>().GetModifier(); break;
             }
         }
         
@@ -97,7 +95,6 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         yield return null;
     }
-    #endregion
 
     private void OnRoundStart(object sender, EventArgs e)
     {

@@ -10,7 +10,6 @@ public class UIBehaviourManager : MonoBehaviour
 
     public void NewTowerSelected(Tower tower)
     {
-        Debug.Log("Firing event!");
         OnTowerSelected?.Invoke(tower);
     }
 

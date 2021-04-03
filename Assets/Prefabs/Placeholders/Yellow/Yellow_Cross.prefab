@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1338416144783322909}
   - component: {fileID: 1338416144783322880}
   - component: {fileID: -1780367496255936419}
+  - component: {fileID: 3972199858742449498}
   m_Layer: 5
   m_Name: Yellow_Cross
   m_TagString: Untagged
@@ -116,4 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f3ff61bb1b36e49b3b6a65d0ed9601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physicalDamage: 0
+--- !u!210 &3972199858742449498
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338416144783322907}
+  m_Enabled: 1
+  m_SortingLayerID: 76638165
+  m_SortingLayer: 1
+  m_SortingOrder: 0

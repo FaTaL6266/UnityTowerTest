@@ -17,16 +17,27 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     private void Awake()
     {
+        this.inventory = GameHandler.Instance.inventory;
+        canvas = GameObject.Find("GameHandler/Background").GetComponent<Canvas>();
+        manager = GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>();
+        rectTransform = GetComponent<RectTransform>();
+        startPosition = rectTransform.anchoredPosition;
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    private void Start()
+    {
+        if (gameObject.CompareTag("SpawnedOnEnemyDeath"))
         {
-            this.inventory = GameHandler.Instance.inventory;
-            canvas = GameObject.Find("GameHandler/Background").GetComponent<Canvas>();
-            manager = GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>();
-            rectTransform = GetComponent<RectTransform>();
-            startPosition = rectTransform.anchoredPosition;
-            canvasGroup = GetComponent<CanvasGroup>();
+            Invoke("AutomaticAddToInventory", 10f);
         }
     }
 
+    private void AutomaticAddToInventory()
+    {
+        StartCoroutine(inventory.AddItem(gameObject));
+        Destroy(gameObject);
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -34,6 +45,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         {
             manager.ModuleDragging();
         }
+        CancelInvoke("AutomaticAddToInventory");
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
     }
@@ -45,7 +57,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        GameHandler.Instance.inventoryMenu.HideMenu();
         if (gameObject.CompareTag("SpawnedFromInventory"))
         {
             ReturnToInventory();
@@ -53,6 +64,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         else if(gameObject.CompareTag("SpawnedOnEnemyDeath"))
         {
             ResetPosition();
+            Invoke("AutomaticAddToInventory", 10f);
         }
     }
 

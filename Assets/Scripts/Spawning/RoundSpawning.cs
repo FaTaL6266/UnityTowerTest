@@ -37,6 +37,8 @@ public class RoundSpawning : MonoBehaviour
 
     private IEnumerator ActivateSpawners()
     {
+        if (round == 1) yield return new WaitForSeconds(0.1f);
+
         int active = 0;
         while (active < amountToActivate)
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Inventory
 {
@@ -22,7 +23,7 @@ public class Inventory
             if (slots[i].name == item.name)
             {
                 stock[i]++;
-                slots[i].transform.Find("Text").GetComponent<Text>().text = stock[i].ToString();
+                slots[i].transform.Find("Text").GetComponent<TextMeshProUGUI>().text = stock[i].ToString();
                 break;
             }
         }
@@ -42,12 +43,11 @@ public class Inventory
                 else
                 {
                     stock[i]--;
-                    slots[i].transform.Find("Text").GetComponent<Text>().text = stock[i].ToString();
+                    slots[i].transform.Find("Text").GetComponent<TextMeshProUGUI>().text = stock[i].ToString();
                     return true;
                 }
             }
         }
         return false;
     }
-
 }
