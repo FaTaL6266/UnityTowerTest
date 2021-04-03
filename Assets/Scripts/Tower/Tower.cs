@@ -38,6 +38,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     private bool moved = false;
     private RoundSpawning roundSpawning;
     private UIBehaviourManager manager;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,8 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         roundSpawning.OnRoundEnd += OnRoundEnd;
 
         canvas = transform.parent.GetComponent<Canvas>();
+        animator = GetComponent<Animator>();
+        animator.SetBool("BIsAttacking", false);
         manager = GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>();
 
         projectileSpawn = transform.Find("ProjectileSpawnLocation");
@@ -108,8 +111,10 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     private void FireProjectile()
     {
+        animator.SetBool("bIsAttacking", true);
         GameObject spawnedProjectile = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity, GameObject.Find("GameHandler/Background/PlayArea").transform);
         spawnedProjectile.GetComponent<Projectile>().SetProperties(projectileSpeed, physicalDamage, fireDamage, gameObject.transform.localScale);
+        animator.SetBool("BIsAttacking", false);
     }
 
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)
@@ -153,7 +158,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             eventData.pointerDrag = null;
             return;
         }
-
+        GetComponent<Collider2D>().enabled = false;
         eventData.eligibleForClick = false;
         GameHandler.Instance.inventoryMenu.HideMenu();
         canvasGroup.alpha = .6f;
@@ -176,6 +181,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             startPosition = rectTransform.anchoredPosition;
         }
+        GetComponent<Collider2D>().enabled = true;
         moved = false;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;

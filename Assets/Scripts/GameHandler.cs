@@ -29,11 +29,13 @@ public class GameHandler : MonoBehaviour
     public void IncreaseLives(int value)
     {
         lives += value;
+        UpdateText();
     }
 
     public void DecreaseLives(int value)
     {
         lives -= value;
+        UpdateText();
         if (lives <= 0) GameOver();
     }
 

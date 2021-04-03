@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: -3852934139678393599}
   - component: {fileID: -2175347818419462162}
   - component: {fileID: 4974064977085019464}
+  - component: {fileID: 5174124002689687465}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -127,10 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modules:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - 
+  - 
+  - 
+  - 
 --- !u!225 &-2175347818419462162
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -169,3 +170,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 35}
   m_EdgeRadius: 0
+--- !u!95 &5174124002689687465
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085522757887202427}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5acc4af1d7c42fe47b5faa5167628384, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

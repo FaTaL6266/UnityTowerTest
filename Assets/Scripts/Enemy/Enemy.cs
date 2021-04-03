@@ -125,7 +125,7 @@ public class Enemy : MonoBehaviour
 
         if (animator)
         {
-            animator.SetTrigger("Dead");
+            animator.SetBool("bIsDead", true);
             yield return new WaitForSeconds(1);
         }
         else yield return null;
