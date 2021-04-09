@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour
     private GenerateModule moduleGeneration;
     private Animator animator;
     private Tower towerToAttack;
-    private Canvas canvas;
 
     // Getter and Setter functions
     public EnemySpawner ParentSpawner { get => parentSpawner; set => parentSpawner = value; }
@@ -50,7 +49,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.Find("GameHandler/Background").GetComponent<Canvas>();
         moduleGeneration = GameHandler.Instance.transform.GetComponent<GenerateModule>();
         animator = GetComponent<Animator>();
         ParentSpawner = this.transform.parent.gameObject.GetComponent<EnemySpawner>();
@@ -106,6 +104,10 @@ public class Enemy : MonoBehaviour
         {
             StartCoroutine(DeathCoroutine());
         }
+        else
+        {
+            SoundManager.Playsound(SoundManager.Sound.EnemyHurt);
+        }
     }
 
     IEnumerator DeathCoroutine()
@@ -123,12 +125,13 @@ public class Enemy : MonoBehaviour
         else if (itemRarity >= exotic && itemRarity < legendary) { moduleGeneration.SpawnModule(ModuleRarity.EXOTIC, position); }
         else if (itemRarity >= legendary) { moduleGeneration.SpawnModule(ModuleRarity.LEGENDARY, position); }
 
+        SoundManager.Playsound(SoundManager.Sound.EnemyDeath);
+
         if (animator)
         {
             animator.SetBool("bIsDead", true);
-            yield return new WaitForSeconds(1);
         }
-        else yield return null;
+        yield return new WaitForSeconds(1);
 
         ParentSpawner.RemoveSpawnedEnemy(gameObject);
         Destroy(gameObject);

@@ -113,6 +113,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     {
         animator.SetBool("bIsAttacking", true);
         GameObject spawnedProjectile = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity, GameObject.Find("GameHandler/Background/PlayArea").transform);
+        SoundManager.Playsound(SoundManager.Sound.TowerFire);
         spawnedProjectile.GetComponent<Projectile>().SetProperties(projectileSpeed, physicalDamage, fireDamage, gameObject.transform.localScale);
         animator.SetBool("bIsAttacking", false);
     }
@@ -124,8 +125,10 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         if (health <= 0)
         {
+            SoundManager.Playsound(SoundManager.Sound.TowerDeath);
             Destroy(gameObject);
         }
+        else SoundManager.Playsound(SoundManager.Sound.TowerHurt);
     }
 
     #region Moving Position

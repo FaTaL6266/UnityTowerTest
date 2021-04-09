@@ -4,10 +4,28 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - projectile: {instanceID: 0}
+  - projectile: {fileID: 8078049444102871868, guid: cc4ad7efe6ad0cb439985fa55a620ffb,
+      type: 3}
   - tower: {fileID: 5085522757887202427, guid: e27643bb812345e4d85c939fc9f85a68, type: 3}
   - dummyTower: {fileID: 6332064851926432072, guid: b87579e4421ea7d4a8d5edade52592cf,
       type: 3}
+  - soldier: {fileID: 638931607951271430, guid: abe041ff8b4e5f54799c87e068e9c63a,
+      type: 3}
+  - corporal: {fileID: 638931607951271430, guid: e1ea08b50672d5a46bed07b115be41b8,
+      type: 3}
+  - sergeant: {fileID: 638931607951271430, guid: 3fa6f608a8316bf4bb2fd47a506cdc32,
+      type: 3}
+  - lieutenant: {fileID: 638931607951271430, guid: c69816014b5eaa645aedb82d4ff04203,
+      type: 3}
+  - colonel: {fileID: 638931607951271430, guid: 81b97785f8d91b24f90b3c40b674cc75,
+      type: 3}
+  - general: {fileID: 638931607951271430, guid: 43c5440e02fe80846b0ff34845f25daf,
+      type: 3}
+  - greatGeneral: {fileID: 638931607951271430, guid: da87cc6b997cec4459ffada27b93368e,
+      type: 3}
+  - masterGeneral: {fileID: 638931607951271430, guid: a7c538e20e2cbef4db5a15a3cac669d4,
+      type: 3}
+  - defaultSlotSprite: {instanceID: 0}
   executionOrder: -20
   icon: {instanceID: 0}
   userData: 

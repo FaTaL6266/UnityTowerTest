@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,6 +46,15 @@ public class GameAssets : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public SoundAudioClip[] soundAudioClipArray;
+
+    [Serializable]
+    public class SoundAudioClip
+    {
+        public SoundManager.Sound sound;
+        public AudioClip audioClip;
     }
 
     // Public referencable objects
