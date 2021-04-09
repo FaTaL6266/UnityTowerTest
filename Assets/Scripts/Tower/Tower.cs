@@ -49,7 +49,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         canvas = transform.parent.GetComponent<Canvas>();
         animator = GetComponent<Animator>();
-        animator.SetBool("BIsAttacking", false);
+        animator.SetBool("bIsAttacking", false);
         manager = GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>();
 
         projectileSpawn = transform.Find("ProjectileSpawnLocation");
@@ -114,7 +114,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         animator.SetBool("bIsAttacking", true);
         GameObject spawnedProjectile = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity, GameObject.Find("GameHandler/Background/PlayArea").transform);
         spawnedProjectile.GetComponent<Projectile>().SetProperties(projectileSpeed, physicalDamage, fireDamage, gameObject.transform.localScale);
-        animator.SetBool("BIsAttacking", false);
+        animator.SetBool("bIsAttacking", false);
     }
 
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)

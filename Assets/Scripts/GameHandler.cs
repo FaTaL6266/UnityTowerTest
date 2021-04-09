@@ -149,6 +149,7 @@ public class GameHandler : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        GetComponent<PauseController>().UnpauseGame();
         inventory = new Inventory();
         UpdateText();
         cancelButton.interactable = false;
