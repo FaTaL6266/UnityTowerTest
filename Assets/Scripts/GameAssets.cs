@@ -81,6 +81,7 @@ public class GameAssets : MonoBehaviour
 
     // Other stuff
     public Sprite defaultSlotSprite;
+    public GameObject GameOver;
 
 
 

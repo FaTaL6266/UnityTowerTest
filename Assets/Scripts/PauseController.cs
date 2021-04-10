@@ -21,18 +21,29 @@ public class PauseController : MonoBehaviour
 
     void PauseGame()
     {
-        createdPauseMenu = Instantiate(pauseMenu, GameObject.Find("GameHandler/Background").transform);
-        GameHandler.Instance.gameObject.GetComponent<GameSceneWindow>().GamePaused(createdPauseMenu);
+        if (GameHandler.Instance.bIsGameOver)
+        {
+
+        }
+        else
+        {
+            createdPauseMenu = Instantiate(pauseMenu, GameObject.Find("GameHandler/Background").transform);
+            GameHandler.Instance.gameObject.GetComponent<GameSceneWindow>().GamePaused(createdPauseMenu);
+        }
+
         Time.timeScale = 0f;
     }
 
     public void UnpauseGame()
     {
-        gameIsPaused = false;
-        Time.timeScale = 1;
-        if (createdPauseMenu)
+        if (!GameHandler.Instance.bIsGameOver)
         {
-            Destroy(createdPauseMenu);
+            gameIsPaused = false;
+            Time.timeScale = 1;
+            if (createdPauseMenu)
+            {
+                Destroy(createdPauseMenu);
+            }
         }
     }
 }

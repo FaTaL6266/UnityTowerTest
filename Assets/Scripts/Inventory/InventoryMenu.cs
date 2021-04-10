@@ -44,8 +44,6 @@ public class InventoryMenu : MonoBehaviour, IDropHandler
         fireRateText =           transform.Find("TowerInfo/TowerDetailsText/FireRateText").GetComponent<TextMeshProUGUI>();
         physicalResistanceText = transform.Find("TowerInfo/TowerDetailsText/PhysicalResistanceText").GetComponent<TextMeshProUGUI>();
         fireResistanceText =     transform.Find("TowerInfo/TowerDetailsText/FireResistanceText").GetComponent<TextMeshProUGUI>();
-
-
     }
 
     private void Start()

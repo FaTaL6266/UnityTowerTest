@@ -21,10 +21,11 @@ public class GameHandler : MonoBehaviour
 
     // Other references
     public InventoryMenu inventoryMenu;
+    public bool bIsGameOver = false;
 
 
     #region Lives
-    private int lives = 100;
+    private int lives = 10;
 
     public void IncreaseLives(int value)
     {
@@ -41,7 +42,16 @@ public class GameHandler : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("The game is over");
+        if (bIsBuyingTower)
+        {
+            bIsBuyingTower = false;
+            Destroy(followTower);
+        }
+
+        bIsGameOver = true;
+        buyButton.interactable = false;
+        cancelButton.interactable = false;
+        transform.Find("GameOver").gameObject.SetActive(true);
     }
     #endregion
 

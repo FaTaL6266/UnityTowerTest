@@ -61,30 +61,33 @@ public class RoundSpawning : MonoBehaviour
 
     private void RoundComplete()
     {
-        OnRoundEnd?.Invoke(this, EventArgs.Empty);
-        bInRound = false;
-        amountCompleted = 0;
-        round++;
-        roundBudget = (int)(roundBudget * 1.1);
+        if (!GameHandler.Instance.bIsGameOver)
+        {
+            OnRoundEnd?.Invoke(this, EventArgs.Empty);
+            bInRound = false;
+            amountCompleted = 0;
+            round++;
+            roundBudget = (int)(roundBudget * 1.1);
 
-        if (round < 5)
-        {
-            amountToActivate = 2;
-            StartCoroutine(ActivateSpawners());
-        }
+            if (round < 5)
+            {
+                amountToActivate = 2;
+                StartCoroutine(ActivateSpawners());
+            }
 
-        else if (round < 10)
-        {
-            amountToActivate = 4;
-            StartCoroutine(ActivateSpawners());
+            else if (round < 10)
+            {
+                amountToActivate = 4;
+                StartCoroutine(ActivateSpawners());
+            }
+            else
+            {
+                amountToActivate = 6;
+                StartCoroutine(ActivateSpawners());
+            }
+            startRoundButton.interactable = true;
+            startRoundButtonText.text = "Start round " + round.ToString();
         }
-        else
-        {
-            amountToActivate = 6;
-            StartCoroutine(ActivateSpawners());
-        }
-        startRoundButton.interactable = true;
-        startRoundButtonText.text = "Start round " + round.ToString();
     }
 
     public void CheckRoundCompletion()

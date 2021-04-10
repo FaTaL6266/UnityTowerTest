@@ -15,10 +15,14 @@ public static class Loader
         Credits
     }
 
-    private static Action loaderCallbackAction;
+    public static Action loaderCallbackAction;
+    public static bool bDoneLoading;
+    public static Scene shareScene;
 
     public static void Load(Scene scene)
     {
+        shareScene = scene;
+        bDoneLoading = false;
         loaderCallbackAction = () => { SceneManager.LoadScene(scene.ToString()); };
 
         SceneManager.LoadScene(Scene.Loading.ToString());
@@ -28,8 +32,7 @@ public static class Loader
     {
         if (loaderCallbackAction != null)
         {
-            loaderCallbackAction();
-            loaderCallbackAction = null;
+            bDoneLoading = true;
         }
     }
 
