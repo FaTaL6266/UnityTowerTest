@@ -11,7 +11,8 @@ public static class Loader
         GameScene,
         Loading,
         MainMenu,
-        HowToPlay
+        HowToPlay,
+        Credits
     }
 
     private static Action loaderCallbackAction;

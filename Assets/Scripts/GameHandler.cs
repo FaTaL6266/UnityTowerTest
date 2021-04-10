@@ -149,6 +149,10 @@ public class GameHandler : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        if (MusicManager.Instance)
+        {
+            Destroy(MusicManager.Instance.gameObject);
+        }
         GetComponent<PauseController>().UnpauseGame();
         inventory = new Inventory();
         UpdateText();

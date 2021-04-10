@@ -13,8 +13,7 @@ AnimatorStateMachine:
     m_State: {fileID: 4556623978457495215}
     m_Position: {x: 290, y: 40, z: 0}
   m_ChildStateMachines: []
-  m_AnyStateTransitions:
-  - {fileID: 9193480789195175035}
+  m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -55,8 +54,7 @@ AnimatorState:
   m_Name: Background_Anim
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: 5809916854828429503}
+  m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
