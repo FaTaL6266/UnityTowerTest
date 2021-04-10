@@ -25,7 +25,7 @@ public class GameHandler : MonoBehaviour
 
 
     #region Lives
-    private int lives = 10;
+    private int lives = 100;
 
     public void IncreaseLives(int value)
     {
@@ -51,7 +51,7 @@ public class GameHandler : MonoBehaviour
         bIsGameOver = true;
         buyButton.interactable = false;
         cancelButton.interactable = false;
-        transform.Find("GameOver").gameObject.SetActive(true);
+        transform.Find("UI/GameOver").gameObject.SetActive(true);
     }
     #endregion
 

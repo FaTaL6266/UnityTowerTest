@@ -1440,8 +1440,8 @@ RectTransform:
   - {fileID: 1997798338}
   - {fileID: 864839417}
   - {fileID: 289601621}
-  m_Father: {fileID: 1688909244}
-  m_RootOrder: 5
+  m_Father: {fileID: 2048577329}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1475,7 +1475,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 519420031}
+  m_Camera: {fileID: 1863970376}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -15026,7 +15026,6 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1720236335}
   - {fileID: 2048577329}
-  - {fileID: 177675762}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15589,6 +15588,7 @@ GameObject:
   - component: {fileID: 1728980119}
   - component: {fileID: 1728980118}
   - component: {fileID: 1728980117}
+  - component: {fileID: 1728980120}
   m_Layer: 0
   m_Name: ShieldGenerator
   m_TagString: Generator
@@ -15639,7 +15639,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 450}
+  m_Size: {x: 50, y: 450}
   m_EdgeRadius: 0
 --- !u!114 &1728980118
 MonoBehaviour:
@@ -15679,6 +15679,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728980115}
   m_CullTransparentMesh: 0
+--- !u!95 &1728980120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728980115}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54b9e01fb0766a64381e91bf2e185843, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1729948998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19359,6 +19378,7 @@ Transform:
   m_Children:
   - {fileID: 1863970377}
   - {fileID: 904808540}
+  - {fileID: 177675762}
   m_Father: {fileID: 1688909244}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

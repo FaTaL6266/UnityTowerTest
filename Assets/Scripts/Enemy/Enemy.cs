@@ -139,7 +139,6 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator ReachedGenerator()
     {
-        Debug.Log("Hitting generator");
         bAlive = false;
         GetComponent<Collider2D>().enabled = false;
 
