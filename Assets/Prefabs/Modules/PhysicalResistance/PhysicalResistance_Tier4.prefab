@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1731693522476830055}
   - component: {fileID: 1731693522476830052}
   - component: {fileID: 1731693522476830073}
-  - component: {fileID: -5841057290866908904}
   - component: {fileID: 2748309086193545588}
+  - component: {fileID: 5927535947523655261}
   m_Layer: 5
   m_Name: PhysicalResistance_Tier4
   m_TagString: Untagged
@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 21, y: 20}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1731693522476830054
 CanvasRenderer:
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  moduleRarity: 0
+  moduleRarity: 3
   moduleType: 4
 --- !u!225 &1731693522476830073
 CanvasGroup:
@@ -105,18 +105,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-5841057290866908904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731693522476830050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627cbb1d5871d2c409210140b8c01466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!210 &2748309086193545588
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -128,3 +116,15 @@ SortingGroup:
   m_SortingLayerID: 76638165
   m_SortingLayer: 1
   m_SortingOrder: 0
+--- !u!114 &5927535947523655261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731693522476830050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1277cb958efb5d44bf7e23f530fc9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
