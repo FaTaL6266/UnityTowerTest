@@ -1530,8 +1530,8 @@ RectTransform:
   - {fileID: 1997798338}
   - {fileID: 864839417}
   - {fileID: 289601621}
-  m_Father: {fileID: 2048577329}
-  m_RootOrder: 2
+  m_Father: {fileID: 1688909244}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1565,7 +1565,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1863970376}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -14185,6 +14185,7 @@ Transform:
   - {fileID: 1563651295}
   - {fileID: 2015792261}
   - {fileID: 519420032}
+  - {fileID: 177675762}
   - {fileID: 1720236335}
   - {fileID: 2048577329}
   m_Father: {fileID: 0}
@@ -14619,7 +14620,7 @@ RectTransform:
   - {fileID: 1701998766}
   - {fileID: 166976737}
   m_Father: {fileID: 1688909244}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14779,8 +14780,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.000002, y: -320.8801}
-  m_SizeDelta: {x: 398.61652, y: 438.2417}
+  m_AnchoredPosition: {x: 10, y: -275}
+  m_SizeDelta: {x: 375, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1728980117
 BoxCollider2D:
@@ -14795,7 +14796,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -10, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14806,7 +14807,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 50, y: 450}
+  m_Size: {x: 200, y: 450}
   m_EdgeRadius: 0
 --- !u!114 &1728980118
 MonoBehaviour:
@@ -18127,9 +18128,8 @@ Transform:
   m_Children:
   - {fileID: 1863970377}
   - {fileID: 904808540}
-  - {fileID: 177675762}
   m_Father: {fileID: 1688909244}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2082075519
 GameObject:
