@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
@@ -11,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     // Private variables only changeable through script
     private bool bDoneSpawning;
     public bool bIsActive;
+    private bool bFlashRow;
     private int round;
     private float spawnRate = 1.75f;
     private int roundBudget;
@@ -32,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     // Reference variables
     private RoundSpawning roundSpawning;
+    private Image flashArea;
 
     // Awake is called before Start()
     private void Awake()
@@ -53,7 +56,19 @@ public class EnemySpawner : MonoBehaviour
         roundSpawning.OnRoundStart += OnRoundStart;
         roundSpawning.spawnerList.Add(gameObject);
 
+        flashArea = transform.Find("ActiveLane").GetComponent<Image>();
+
         lowestEnemyStrength = soldier.GetComponent<Enemy>().EnemyStrength;
+    }
+
+    private void Update()
+    {
+        if (bIsActive && bFlashRow)
+        {
+            flashArea.color = Color.Lerp(Color.clear, new Color(1, 0, 0, 0.5f), Mathf.PingPong(Time.time, 1));
+        }
+        else flashArea.color = Color.Lerp(flashArea.color, Color.clear, 2.5f);
+
     }
 
     public void ActivateSpawner()
@@ -67,8 +82,15 @@ public class EnemySpawner : MonoBehaviour
         if (bIsActive)
         {
             bDoneSpawning = false;
+            bFlashRow = true;
+            Invoke("CancelFlashing", 4.0f);
             Invoke("Spawn", 5.0f);
         }
+    }
+
+    private void CancelFlashing()
+    {
+        bFlashRow = false;
     }
 
     public void PreloadRound()
