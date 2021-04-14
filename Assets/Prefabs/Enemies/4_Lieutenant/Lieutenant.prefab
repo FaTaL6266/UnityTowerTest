@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3965826055244096721}
   - component: {fileID: 6820722109992019216}
   - component: {fileID: -6142261487426312796}
+  - component: {fileID: 2004326574943592522}
   m_Layer: 12
   m_Name: Lieutenant
   m_TagString: Enemy
@@ -39,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &8008373084683245763
 Rigidbody2D:
@@ -75,7 +76,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -40, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -86,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 30}
   m_EdgeRadius: 0
 --- !u!114 &5609403042262346074
 MonoBehaviour:
@@ -100,20 +101,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3814639e93c7e4ba342f7fc0f9b765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  common: 15
-  uncommon: 25
-  rare: 65
-  exotic: 85
-  legendary: 98
-  enemySpeed: 15
+  common: 65
+  uncommon: 71.5
+  rare: 86.5
+  exotic: 95
+  legendary: 99
+  enemySpeed: 3.75
   enemyStrength: 15
   enemyValue: 65
   attackRate: 3.2
-  enemyHealth: 30
-  enemyPhysicalDamage: 10
-  enemyFireDamage: 10
-  enemyPhysicalDefense: 5
-  enemyFireDefense: 5
+  health: 30
+  physicalDamage: 10
+  fireDamage: 10
+  physicalResistance: 5
+  fireResistance: 5
 --- !u!222 &3965826055244096721
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -141,7 +142,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8ffee42fe19dee44fbde6a35ea547b99, type: 3}
+  m_Sprite: {fileID: -4306388466169094087, guid: 5c2a9f38788119c4bad80ef6385f2b48,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -247,3 +249,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2004326574943592522
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638931607951271430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cdbfe76a758b1fd4c9dc04bb278063d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

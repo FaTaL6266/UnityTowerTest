@@ -48,14 +48,12 @@ public class GameAssets : MonoBehaviour
         return null;
     }
 
-    public SoundAudioClip[] soundAudioClipArray;
-
-    [Serializable]
-    public class SoundAudioClip
-    {
-        public SoundManager.Sound sound;
-        public AudioClip audioClip;
-    }
+    public AudioClip enemyHurt;
+    public AudioClip enemyDeath;
+    public AudioClip itemPickup;
+    public AudioClip towerHurt;
+    public AudioClip towerDeath;
+    public AudioClip towerFire;
 
     // Public referencable objects
     public GameObject projectile;

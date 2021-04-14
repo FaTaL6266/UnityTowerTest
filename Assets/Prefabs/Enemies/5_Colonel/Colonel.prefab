@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1426204417769939864}
   - component: {fileID: 8135955190702957750}
   - component: {fileID: 8541119479053543955}
+  - component: {fileID: 4514055576109776799}
   m_Layer: 12
   m_Name: Colonel
   m_TagString: Enemy
@@ -100,20 +101,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3814639e93c7e4ba342f7fc0f9b765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  common: 0
-  uncommon: 5
-  rare: 55
-  exotic: 80
-  legendary: 96.5
-  enemySpeed: 6
+  common: 40
+  uncommon: 45
+  rare: 85
+  exotic: 95
+  legendary: 99.5
+  enemySpeed: 1.25
   enemyStrength: 40
   enemyValue: 90
   attackRate: 500
-  enemyHealth: 20
-  enemyPhysicalDamage: 0
-  enemyFireDamage: 0
-  enemyPhysicalDefense: 999
-  enemyFireDefense: -15
+  health: 20
+  physicalDamage: 0
+  fireDamage: 0
+  physicalResistance: 999
+  fireResistance: -15
 --- !u!222 &1426204417769939864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -247,3 +248,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4514055576109776799
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638931607951271430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4806fe5eb877e98448d97bf69cd3ebe8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

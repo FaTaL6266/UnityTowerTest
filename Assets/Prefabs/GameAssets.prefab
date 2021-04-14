@@ -118,6 +118,12 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: faa65640ef2cd22419526d0b706977e0, type: 3}
   - sound: 4
     audioClip: {fileID: 8300000, guid: 08527b749781bc8498cc68bdafc74b10, type: 3}
+  enemyHurt: {fileID: 8300000, guid: 51ae20b72dbaa8e46b55e37a82fb9a9c, type: 3}
+  enemyDeath: {fileID: 8300000, guid: 7b42c1efb6e03c847800c1eedebcb310, type: 3}
+  itemPickup: {fileID: 8300000, guid: 619d87f7abe2f9b4ebe4a92d8b69a047, type: 3}
+  towerHurt: {fileID: 8300000, guid: eecc4ce8e44900d4c8ae8a05027afc22, type: 3}
+  towerDeath: {fileID: 8300000, guid: faa65640ef2cd22419526d0b706977e0, type: 3}
+  towerFire: {fileID: 8300000, guid: 08527b749781bc8498cc68bdafc74b10, type: 3}
   projectile: {fileID: 8078049444102871868, guid: cc4ad7efe6ad0cb439985fa55a620ffb,
     type: 3}
   tower: {fileID: 5085522757887202427, guid: e27643bb812345e4d85c939fc9f85a68, type: 3}

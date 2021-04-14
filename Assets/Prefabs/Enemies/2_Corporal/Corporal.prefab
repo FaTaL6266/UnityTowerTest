@@ -120,20 +120,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3814639e93c7e4ba342f7fc0f9b765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  common: 40
-  uncommon: 65
-  rare: 90
-  exotic: 97
-  legendary: 99.7
-  enemySpeed: 85
+  common: 78.5
+  uncommon: 87.5
+  rare: 95.5
+  exotic: 99.2
+  legendary: 99.8
+  enemySpeed: 12.25
   enemyStrength: 5
   enemyValue: 25
   attackRate: 2.1
-  enemyHealth: 6
-  enemyPhysicalDamage: 0
-  enemyFireDamage: 1
-  enemyPhysicalDefense: 0
-  enemyFireDefense: 5
+  health: 6
+  physicalDamage: 0
+  fireDamage: 1
+  physicalResistance: 0
+  fireResistance: 5
 --- !u!222 &80406305200079626
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -318645368801200235, guid: 297c3097cfa6bd74fa10fd83cda2e330,
+  m_Sprite: {fileID: 2932675060252736269, guid: 352fd505b4b4e304d9b05679fd2ecfd2,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

@@ -52,7 +52,7 @@ Animator:
   m_GameObject: {fileID: 638931607951271430}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1674736b2ee001141b851da959944b79, type: 2}
+  m_Controller: {fileID: 9100000, guid: fbf694806a6924048b85f2cb7af4198a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -120,20 +120,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3814639e93c7e4ba342f7fc0f9b765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  common: 25
-  uncommon: 40
-  rare: 75
-  exotic: 90
-  legendary: 99
-  enemySpeed: 110
+  common: 75
+  uncommon: 83
+  rare: 93
+  exotic: 98
+  legendary: 99.5
+  enemySpeed: 27.5
   enemyStrength: 8
   enemyValue: 20
   attackRate: 1.1
-  enemyHealth: 15
-  enemyPhysicalDamage: 3
-  enemyFireDamage: 0
-  enemyPhysicalDefense: 0
-  enemyFireDefense: -10
+  health: 15
+  physicalDamage: 3
+  fireDamage: 0
+  physicalResistance: 0
+  fireResistance: -10
 --- !u!222 &4870392351644386254
 CanvasRenderer:
   m_ObjectHideFlags: 0

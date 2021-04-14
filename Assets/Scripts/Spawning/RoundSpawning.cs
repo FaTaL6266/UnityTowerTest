@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Random = UnityEngine.Random;
 
 public class RoundSpawning : MonoBehaviour
@@ -12,7 +13,7 @@ public class RoundSpawning : MonoBehaviour
     public List<GameObject> spawnerList = new List<GameObject>();
     public List<GameObject> activeSpawners = new List<GameObject>();
     [SerializeField] private Button startRoundButton;
-    [SerializeField] private Text startRoundButtonText;
+    [SerializeField] private TextMeshProUGUI startRoundButtonText;
 
     public event EventHandler OnRoundStart;
     public event EventHandler OnRoundEnd;

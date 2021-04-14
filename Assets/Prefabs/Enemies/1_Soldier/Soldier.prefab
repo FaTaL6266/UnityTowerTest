@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8469630282864734763}
   - component: {fileID: 8473480231720658706}
   - component: {fileID: 2426852696646799516}
+  - component: {fileID: 5669412985222485746}
   m_Layer: 12
   m_Name: Soldier
   m_TagString: Enemy
@@ -31,7 +32,7 @@ RectTransform:
   m_GameObject: {fileID: 638931607951271430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -39,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &8008373084683245763
 Rigidbody2D:
@@ -75,7 +76,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.75, y: 0.25}
+  m_Offset: {x: 20, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -86,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1.5}
+  m_Size: {x: 10, y: 15}
   m_EdgeRadius: 0
 --- !u!114 &-5046507370562938487
 MonoBehaviour:
@@ -100,20 +101,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3814639e93c7e4ba342f7fc0f9b765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  common: 60
-  uncommon: 80
-  rare: 95
-  exotic: 98.5
+  common: 82.5
+  uncommon: 92.5
+  rare: 97.5
+  exotic: 99.5
   legendary: 99.9
-  enemySpeed: 50
+  enemySpeed: 12.5
   enemyStrength: 2
   enemyValue: 15
   attackRate: 1.5
-  enemyHealth: 5
-  enemyPhysicalDamage: 2
-  enemyFireDamage: 0
-  enemyPhysicalDefense: 0
-  enemyFireDefense: 0
+  health: 5
+  physicalDamage: 2
+  fireDamage: 0
+  physicalResistance: 0
+  fireResistance: 0
 --- !u!222 &8469630282864734763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -141,7 +142,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb4e73b019b3fa44eb655fc5ffe947dc, type: 3}
+  m_Sprite: {fileID: -575265346120811999, guid: c586ed87c2f76444c9782a24cf4cc412,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -247,3 +249,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &5669412985222485746
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638931607951271430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3f872887f8cf494fa37db6fa9197c0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

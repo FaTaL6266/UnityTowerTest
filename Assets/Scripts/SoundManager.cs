@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class SoundManager
-{
+{/*
     public enum Sound
     {
         EnemyHurt,
@@ -13,7 +13,7 @@ public static class SoundManager
         TowerFire,
         TowerHurt
     }
-
+    
     public static void Playsound(Sound sound)
     {
         GameObject soundGameObject = new GameObject("Sound");
@@ -33,5 +33,5 @@ public static class SoundManager
         Debug.LogError("Sound " + sound + " not found!");
         return null;
     }
-
+    */
 }

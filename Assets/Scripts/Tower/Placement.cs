@@ -15,12 +15,13 @@ public class Placement : MonoBehaviour, IPointerDownHandler, IDropHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!bIsPlacementOccupied)
+        if (!bIsPlacementOccupied && eventData.button == PointerEventData.InputButton.Left)
         {
             if (GameHandler.Instance.bIsBuyingTower && GameHandler.Instance.TryBuyTower())
             {
                 bIsPlacementOccupied = true;
-                GameObject tower = Instantiate(GameAssets.Instance.tower, gameObject.transform.position, Quaternion.identity, GameObject.Find("GameHandler/Background").transform);
+                GameObject tower = Instantiate(GameAssets.Instance.tower, gameObject.transform.position, 
+                    Quaternion.identity, GameObject.Find("GameHandler/Background/PlayArea/Towers").transform);
                 tower.GetComponent<Tower>().ChangePlacement(this);
 
                 if (this.gameObject.transform.localScale.x < 0)

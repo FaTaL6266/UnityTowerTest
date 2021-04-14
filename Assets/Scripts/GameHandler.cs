@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.EventSystems;
 
-public class GameHandler : MonoBehaviour
+public class GameHandler : MonoBehaviour, IPointerClickHandler
 {
     public static GameHandler Instance { get; private set; }
     public Inventory inventory;
@@ -11,12 +13,12 @@ public class GameHandler : MonoBehaviour
     public int[] stock;
 
     // Text variables
-    [SerializeField] private Text livesText;
-    [SerializeField] private Text moneyText;
-    [SerializeField] private Text towerCostText;
+    [SerializeField] private TextMeshProUGUI livesText;
+    [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private TextMeshProUGUI towerCostText;
+    [SerializeField] private Image healthBar;
 
     // Button variables
-    [SerializeField] public Button cancelButton;
     [SerializeField] public Button buyButton;
 
     // Other references
@@ -25,18 +27,18 @@ public class GameHandler : MonoBehaviour
 
 
     #region Lives
-    private int lives = 100;
+    private float lives = 100;
 
     public void IncreaseLives(int value)
     {
         lives += value;
-        UpdateText();
+        UpdateUI();
     }
 
     public void DecreaseLives(int value)
     {
         lives -= value;
-        UpdateText();
+        UpdateUI();
         if (lives <= 0) GameOver();
     }
 
@@ -50,7 +52,6 @@ public class GameHandler : MonoBehaviour
 
         bIsGameOver = true;
         buyButton.interactable = false;
-        cancelButton.interactable = false;
         transform.Find("UI/GameOver").gameObject.SetActive(true);
     }
     #endregion
@@ -89,27 +90,27 @@ public class GameHandler : MonoBehaviour
     public void IncreaseMoney(int value)
     {
         money += value;
-        UpdateText();
+        UpdateUI();
     }
 
     public void DecreaseMoney(int value)
     {
         money -= value;
-        UpdateText();
+        UpdateUI();
     }
 
     public void IncreaseTowerCost()
     {
         towerCost = (int)(towerCost * 1.33);
         moveCost = (int)(towerCost / 3);
-        UpdateText();
+        UpdateUI();
     }
 
     public void DecreaseTowerCost()
     {
         towerCost = (int)(towerCost * 0.95);
         moveCost = (int)(towerCost / 3);
-        UpdateText();
+        UpdateUI();
     }
     #endregion
 
@@ -131,28 +132,31 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    public void CancelButton()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (bIsBuyingTower)
+        if (eventData.button == PointerEventData.InputButton.Right)
         {
-            bIsBuyingTower = false;
-            Destroy(followTower);
-
-            ToggleButtons();
+            if (followTower)
+            {
+                Destroy(followTower);
+                bIsBuyingTower = false;
+                buyButton.interactable = true;
+            }
         }
     }
 
     public void ToggleButtons()
     {
-        if (bIsBuyingTower || bIsMovingTower) { cancelButton.interactable = true; buyButton.interactable = false; }
-        else { cancelButton.interactable = false; buyButton.interactable = true; }
+        if (bIsBuyingTower || bIsMovingTower) buyButton.interactable = false;
+        else buyButton.interactable = true;
     }
 
-    private void UpdateText()
+    private void UpdateUI()
     {
-        livesText.text = "Lives: " + lives;
-        moneyText.text = "Money: " + money;
-        towerCostText.text = "Buy Tower: " + towerCost;
+        healthBar.fillAmount = (float)(lives / 100);
+        livesText.text = lives.ToString();
+        moneyText.text = "$" + money;
+        towerCostText.text = "Buy Tower:\n$" + towerCost;
     }
     #endregion
 
@@ -165,8 +169,7 @@ public class GameHandler : MonoBehaviour
         }
         GetComponent<PauseController>().UnpauseGame();
         inventory = new Inventory();
-        UpdateText();
-        cancelButton.interactable = false;
+        UpdateUI();
         buyButton.interactable = true;
     }
 }

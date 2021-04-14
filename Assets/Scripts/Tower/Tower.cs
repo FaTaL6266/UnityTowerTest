@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     private float health = 50f;
     private float fireRate = 1.5f;
     private float projectileSpeed = 25f;
-    private float physicalDamage = 100f;
+    private float physicalDamage = 1f;
     private float fireDamage = 0f;
     private float physicalResistance = 0f;
     private float fireResistance = 0f;
@@ -39,6 +39,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     private RoundSpawning roundSpawning;
     private UIBehaviourManager manager;
     private Animator animator;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +49,8 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         roundSpawning.OnRoundEnd += OnRoundEnd;
 
         canvas = transform.parent.GetComponent<Canvas>();
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        animator.SetBool("bIsAttacking", false);
         manager = GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>();
 
         projectileSpawn = transform.Find("ProjectileSpawnLocation");
@@ -111,24 +112,22 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     private void FireProjectile()
     {
-        animator.SetBool("bIsAttacking", true);
+        animator.SetTrigger("Attack");
+        audioSource.PlayOneShot(GameAssets.Instance.towerFire);
         GameObject spawnedProjectile = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity, GameObject.Find("GameHandler/Background/PlayArea").transform);
-        SoundManager.Playsound(SoundManager.Sound.TowerFire);
         spawnedProjectile.GetComponent<Projectile>().SetProperties(projectileSpeed, physicalDamage, fireDamage, gameObject.transform.localScale);
-        animator.SetBool("bIsAttacking", false);
     }
 
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)
     {
-        Debug.Log("Taking damage" + incomingPhysicalDamage.ToString() + " and " + incomingFireDamage.ToString());
         health -= ((incomingPhysicalDamage - (incomingPhysicalDamage * physicalResistance)) + (incomingFireDamage - (incomingFireDamage * fireResistance)));
 
         if (health <= 0)
         {
-            SoundManager.Playsound(SoundManager.Sound.TowerDeath);
+            audioSource.PlayOneShot(GameAssets.Instance.towerDeath);
             Destroy(gameObject);
         }
-        else SoundManager.Playsound(SoundManager.Sound.TowerHurt);
+        else audioSource.PlayOneShot(GameAssets.Instance.towerHurt);
     }
 
     #region Moving Position

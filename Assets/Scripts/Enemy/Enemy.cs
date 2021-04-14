@@ -17,11 +17,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int enemyStrength;
     [SerializeField] private int enemyValue;
     [SerializeField] private float attackRate;
-    [SerializeField] private float enemyHealth;
-    [SerializeField] private float enemyPhysicalDamage;
-    [SerializeField] private float enemyFireDamage;
-    [SerializeField] private float enemyPhysicalDefense;
-    [SerializeField] private float enemyFireDefense;
+    [SerializeField] private float health;
+    [SerializeField] private float physicalDamage;
+    [SerializeField] private float fireDamage;
+    [SerializeField] private float physicalResistance;
+    [SerializeField] private float fireResistance;
 
     // Boolean variables for checking
     private bool bAlive;
@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     private GenerateModule moduleGeneration;
     private Animator animator;
     private Tower towerToAttack;
+    private AudioSource audioSource;
 
     // Getter and Setter functions
     public EnemySpawner ParentSpawner { get => parentSpawner; set => parentSpawner = value; }
@@ -39,16 +40,17 @@ public class Enemy : MonoBehaviour
     public int EnemyStrength { get => enemyStrength; set => enemyStrength = value; }
     public int EnemyValue { get => enemyValue; set => enemyValue = value; }
     public float AttackRate { get => attackRate; set => attackRate = value; }
-    public float EnemyHealth { get => enemyHealth; set => enemyHealth = value; }
-    public float EnemyPhysicalDamage { get => enemyPhysicalDamage; set => enemyPhysicalDamage = value; }
-    public float EnemyFireDamage { get => enemyFireDamage; set => enemyFireDamage = value; }
-    public float EnemyPhysicalDefense { get => enemyPhysicalDefense; set => enemyPhysicalDefense = value; }
-    public float EnemyFireDefense { get => enemyFireDefense; set => enemyFireDefense = value; }
+    public float EnemyHealth { get => health; set => health = value; }
+    public float EnemyPhysicalDamage { get => physicalDamage; set => physicalDamage = value; }
+    public float EnemyFireDamage { get => fireDamage; set => fireDamage = value; }
+    public float EnemyPhysicalDefense { get => physicalResistance; set => physicalResistance = value; }
+    public float EnemyFireDefense { get => fireResistance; set => fireResistance = value; }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         moduleGeneration = GameHandler.Instance.transform.GetComponent<GenerateModule>();
         animator = GetComponent<Animator>();
         ParentSpawner = this.transform.parent.gameObject.GetComponent<EnemySpawner>();
@@ -61,7 +63,7 @@ public class Enemy : MonoBehaviour
     {
         if (!bAttacking && bAlive)
         {
-            transform.Translate(Vector3.left * EnemySpeed * 0.25f * Time.deltaTime);
+            transform.Translate(Vector3.left * EnemySpeed * Time.deltaTime);
         }
     }
 
@@ -91,14 +93,16 @@ public class Enemy : MonoBehaviour
 
     public void AttackTower()
     {
-        towerToAttack.TakeDamage(enemyPhysicalDamage, enemyFireDamage);
+        animator.SetTrigger("Attack");
+        towerToAttack.TakeDamage(physicalDamage, fireDamage);
     }
     #endregion
 
     #region Damage and Death
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)
     {
-        EnemyHealth -= ((incomingPhysicalDamage - (incomingPhysicalDamage * EnemyPhysicalDefense)) + (incomingFireDamage - (incomingFireDamage * EnemyFireDefense)));
+        if (incomingPhysicalDamage > physicalResistance) EnemyHealth -= incomingPhysicalDamage - physicalResistance;
+        if (incomingFireDamage > fireResistance) EnemyHealth -= incomingFireDamage - fireResistance;
 
         if (EnemyHealth <= 0)
         {
@@ -106,7 +110,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            SoundManager.Playsound(SoundManager.Sound.EnemyHurt);
+            audioSource.PlayOneShot(GameAssets.Instance.enemyHurt);
         }
     }
 
@@ -125,11 +129,11 @@ public class Enemy : MonoBehaviour
         else if (itemRarity >= exotic && itemRarity < legendary) { moduleGeneration.SpawnModule(ModuleRarity.EXOTIC, position); }
         else if (itemRarity >= legendary) { moduleGeneration.SpawnModule(ModuleRarity.LEGENDARY, position); }
 
-        SoundManager.Playsound(SoundManager.Sound.EnemyDeath);
+        audioSource.PlayOneShot(GameAssets.Instance.enemyDeath);
 
         if (animator)
         {
-            animator.SetBool("bIsDead", true);
+            animator.SetBool("bDead", true);
         }
         yield return new WaitForSeconds(1);
 

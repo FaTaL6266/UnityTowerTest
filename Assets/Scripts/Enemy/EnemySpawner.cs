@@ -107,7 +107,7 @@ public class EnemySpawner : MonoBehaviour
         while (roundBudget >= lowestEnemyStrength)
         {
             // Soldier
-            if (Random.Range(0, 101) > 15 && (roundBudget >= soldier.GetComponent<Enemy>().EnemyStrength))
+            if (Random.Range(0, 101) > 25 && (roundBudget >= soldier.GetComponent<Enemy>().EnemyStrength))
             {
                 //Debug.Log("Soldier: Decreasing budget by " + soldier.EnemyStrength.ToString());
                 enemiesToSpawn.Add(soldier);

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8366524620055877199}
   - component: {fileID: 4457334140626672079}
   - component: {fileID: 6125179953164315666}
+  - component: {fileID: 3363953382143223800}
   m_Layer: 12
   m_Name: General
   m_TagString: Enemy
@@ -100,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3814639e93c7e4ba342f7fc0f9b765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  common: 0
-  uncommon: 0
-  rare: 30
-  exotic: 65
-  legendary: 90
+  common: 20
+  uncommon: 20
+  rare: 50
+  exotic: 90
+  legendary: 97
   enemySpeed: 50
   enemyStrength: 100
   enemyValue: 15
@@ -247,3 +248,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &3363953382143223800
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638931607951271430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80229f6e41ab83f45b019688af2b7249, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
