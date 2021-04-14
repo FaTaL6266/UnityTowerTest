@@ -105,19 +105,23 @@ MonoBehaviour:
   - {fileID: 1731693522476830050, guid: 866f3ec496da2a144a97e5de3bbe8331, type: 3}
   - {fileID: 1731693522476830050, guid: dd60480ac7016074da248c65fdeadba7, type: 3}
   - {fileID: 1731693522476830050, guid: b510b771d65155d47b455b8bc6d2b45c, type: 3}
-  soundAudioClipArray:
-  - sound: 0
-    audioClip: {fileID: 8300000, guid: 51ae20b72dbaa8e46b55e37a82fb9a9c, type: 3}
-  - sound: 1
-    audioClip: {fileID: 8300000, guid: 7b42c1efb6e03c847800c1eedebcb310, type: 3}
-  - sound: 2
-    audioClip: {fileID: 8300000, guid: 619d87f7abe2f9b4ebe4a92d8b69a047, type: 3}
-  - sound: 5
-    audioClip: {fileID: 8300000, guid: eecc4ce8e44900d4c8ae8a05027afc22, type: 3}
-  - sound: 3
-    audioClip: {fileID: 8300000, guid: faa65640ef2cd22419526d0b706977e0, type: 3}
-  - sound: 4
-    audioClip: {fileID: 8300000, guid: 08527b749781bc8498cc68bdafc74b10, type: 3}
+  enemyLoadings:
+  - enemyImage: {fileID: 21300000, guid: 9d357975332fd2545909005ee80340c3, type: 3}
+    enemyDescription: 
+  - enemyImage: {fileID: 21300000, guid: 0f470891f9db02a49ba009611cf14b19, type: 3}
+    enemyDescription: 
+  - enemyImage: {fileID: 21300000, guid: fb01e13eeba47c34f8a2c38f29c34d38, type: 3}
+    enemyDescription: 
+  - enemyImage: {fileID: 21300000, guid: 115a0b1cc4ae4ff42a109c789f6a1703, type: 3}
+    enemyDescription: 
+  - enemyImage: {fileID: 21300000, guid: b2c0af8a747a58f44961288c01ae9d51, type: 3}
+    enemyDescription: 
+  - enemyImage: {fileID: 21300000, guid: 047a1de6f808a2240a0212a57191a7db, type: 3}
+    enemyDescription: 
+  - enemyImage: {fileID: 21300000, guid: 04437f886272b8d46bacdf04f2bcc1d2, type: 3}
+    enemyDescription: 
+  - enemyImage: {fileID: 21300000, guid: 891dfe1a13c91814980e2ea7a3ee0734, type: 3}
+    enemyDescription: A placeholder blue checkmark!
   enemyHurt: {fileID: 8300000, guid: 51ae20b72dbaa8e46b55e37a82fb9a9c, type: 3}
   enemyDeath: {fileID: 8300000, guid: 7b42c1efb6e03c847800c1eedebcb310, type: 3}
   itemPickup: {fileID: 8300000, guid: 619d87f7abe2f9b4ebe4a92d8b69a047, type: 3}

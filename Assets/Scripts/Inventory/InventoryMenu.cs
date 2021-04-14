@@ -38,12 +38,19 @@ public class InventoryMenu : MonoBehaviour, IDropHandler
         bIsVisible = true;
         bIsShowingTowerData = false;
 
+        GameHandler.ApplyGameOver += GameOver;
+
         healthText =             transform.Find("TowerInfo/TowerDetailsText/HealthText").GetComponent<TextMeshProUGUI>();
         physicalDamageText =     transform.Find("TowerInfo/TowerDetailsText/PhysicalDamageText").GetComponent<TextMeshProUGUI>();
         fireDamageText =         transform.Find("TowerInfo/TowerDetailsText/FireDamageText").GetComponent<TextMeshProUGUI>();
         fireRateText =           transform.Find("TowerInfo/TowerDetailsText/FireRateText").GetComponent<TextMeshProUGUI>();
         physicalResistanceText = transform.Find("TowerInfo/TowerDetailsText/PhysicalResistanceText").GetComponent<TextMeshProUGUI>();
         fireResistanceText =     transform.Find("TowerInfo/TowerDetailsText/FireResistanceText").GetComponent<TextMeshProUGUI>();
+    }
+
+    private void GameOver()
+    {
+        HideMenu();
     }
 
     private void Start()

@@ -1581,8 +1581,8 @@ RectTransform:
   - {fileID: 1997798338}
   - {fileID: 864839417}
   - {fileID: 289601621}
-  m_Father: {fileID: 1688909244}
-  m_RootOrder: 3
+  m_Father: {fileID: 2048577329}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1616,7 +1616,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 519420031}
+  m_Camera: {fileID: 1863970376}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1682,7 +1682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.3882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -16806,7 +16806,6 @@ Transform:
   - {fileID: 1563651295}
   - {fileID: 2015792261}
   - {fileID: 519420032}
-  - {fileID: 177675762}
   - {fileID: 1720236335}
   - {fileID: 2048577329}
   m_Father: {fileID: 0}
@@ -16863,8 +16862,10 @@ MonoBehaviour:
   buyButton: {fileID: 551727931}
   inventoryMenu: {fileID: 245535991}
   bIsGameOver: 0
+  lives: 100
   bIsBuyingTower: 0
   bIsMovingTower: 0
+  followTower: {fileID: 0}
 --- !u!114 &1688909246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17435,7 +17436,7 @@ RectTransform:
   - {fileID: 1701998766}
   - {fileID: 166976737}
   m_Father: {fileID: 1688909244}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21262,13 +21263,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048577328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1000, y: 0, z: 100}
+  m_LocalPosition: {x: 1000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1863970377}
   - {fileID: 904808540}
+  - {fileID: 177675762}
   m_Father: {fileID: 1688909244}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2089120899
 GameObject:

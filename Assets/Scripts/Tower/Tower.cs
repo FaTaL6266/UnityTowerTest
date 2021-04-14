@@ -40,15 +40,20 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     private UIBehaviourManager manager;
     private Animator animator;
     private AudioSource audioSource;
+    private InventoryMenu inventoryMenu;
+    private bool bGameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        inventoryMenu = GameObject.Find("GameHandler/UI/UICanvas/TowerInfoPanel").GetComponent<InventoryMenu>();
         roundSpawning = GameHandler.Instance.GetComponent<RoundSpawning>();
         roundSpawning.OnRoundStart += OnRoundStart;
         roundSpawning.OnRoundEnd += OnRoundEnd;
 
-        canvas = transform.parent.GetComponent<Canvas>();
+        GameHandler.ApplyGameOver += GameOver;
+
+        canvas = GameObject.Find("GameHandler/Background").GetComponent<Canvas>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         manager = GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>();
@@ -66,6 +71,12 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         }
     }
 
+    private void GameOver()
+    {
+        CancelInvoke("FireProjectile");
+        bGameOver = true;
+    }
+
     public IEnumerator ApplyModule(GameObject module, int moduleSlot)
     {
         // Check if a module is already applied in this slot
@@ -78,7 +89,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
                 case ModuleType.HEALTH: this.health -= moduleToRemove.GetComponent<Health>().GetModifier(); break;
                 case ModuleType.PHYSICALDAMAGE: this.physicalDamage -= moduleToRemove.GetComponent<PhysicalDamage>().GetModifier(); break;
                 case ModuleType.FIREDAMAGE: this.fireDamage -= moduleToRemove.GetComponent<FireDamage>().GetModifier(); break;
-                case ModuleType.FIRERATE: this.fireRate -= moduleToRemove.GetComponent<FireRate>().GetModifier(); break;
+                case ModuleType.FIRERATE: this.fireRate += moduleToRemove.GetComponent<FireRate>().GetModifier(); break;
                 case ModuleType.PHYSICALRESISTANCE: this.physicalResistance -= moduleToRemove.GetComponent<PhysicalResistance>().GetModifier(); break;
                 case ModuleType.FIRERESISTANCE: this.fireResistance -= moduleToRemove.GetComponent<FireResistance>().GetModifier(); break;
             }
@@ -90,7 +101,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             case ModuleType.HEALTH: this.health += module.GetComponent<Health>().GetModifier(); break;
             case ModuleType.PHYSICALDAMAGE: this.physicalDamage += module.GetComponent<PhysicalDamage>().GetModifier(); break;
             case ModuleType.FIREDAMAGE: this.fireDamage += module.GetComponent<FireDamage>().GetModifier(); break;
-            case ModuleType.FIRERATE: this.fireRate += module.GetComponent<FireRate>().GetModifier(); break;
+            case ModuleType.FIRERATE: this.fireRate -= module.GetComponent<FireRate>().GetModifier(); break;
             case ModuleType.PHYSICALRESISTANCE: this.physicalResistance += module.GetComponent<PhysicalResistance>().GetModifier(); break;
             case ModuleType.FIRERESISTANCE: this.fireResistance += module.GetComponent<FireResistance>().GetModifier(); break;
         }
@@ -121,7 +132,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)
     {
         health -= ((incomingPhysicalDamage - (incomingPhysicalDamage * physicalResistance)) + (incomingFireDamage - (incomingFireDamage * fireResistance)));
-
+        if (inventoryMenu.bIsVisible) inventoryMenu.ShowMenuWithTowerStats(this);
         if (health <= 0)
         {
             audioSource.PlayOneShot(GameAssets.Instance.towerDeath);
@@ -147,50 +158,62 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!GameHandler.Instance.bIsBuyingTower)
+        if (!bGameOver)
         {
-            manager.NewTowerSelected(this);
+            if (!GameHandler.Instance.bIsBuyingTower)
+            {
+                manager.NewTowerSelected(this);
+            }
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!GameHandler.Instance.TryMoveTower(false))
+        if (!bGameOver)
         {
-            eventData.pointerDrag = null;
-            return;
+            if (!GameHandler.Instance.TryMoveTower(false))
+            {
+                eventData.pointerDrag = null;
+                return;
+            }
+            GetComponent<Collider2D>().enabled = false;
+            eventData.eligibleForClick = false;
+            GameHandler.Instance.inventoryMenu.HideMenu();
+            canvasGroup.alpha = .6f;
+            canvasGroup.blocksRaycasts = false;
+            CancelInvoke("FireProjectile");
         }
-        GetComponent<Collider2D>().enabled = false;
-        eventData.eligibleForClick = false;
-        GameHandler.Instance.inventoryMenu.HideMenu();
-        canvasGroup.alpha = .6f;
-        canvasGroup.blocksRaycasts = false;
-        CancelInvoke("FireProjectile");
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (!bGameOver)
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
     }
     
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!moved)
+        if (!bGameOver)
         {
-            rectTransform.anchoredPosition = startPosition;
-        }
-        else
-        {
-            startPosition = rectTransform.anchoredPosition;
-        }
-        GetComponent<Collider2D>().enabled = true;
-        moved = false;
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
+            if (!moved)
+            {
+                rectTransform.anchoredPosition = startPosition;
+            }
+            else
+            {
+                startPosition = rectTransform.anchoredPosition;
+            }
+            GetComponent<Collider2D>().enabled = true;
+            moved = false;
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
 
-        if (roundSpawning.bInRound)
-        {
-            InvokeRepeating("FireProjectile", 1.0f, fireRate);
+            if (roundSpawning.bInRound)
+            {
+                InvokeRepeating("FireProjectile", 1.0f, fireRate);
+            }
         }
     }
     #endregion

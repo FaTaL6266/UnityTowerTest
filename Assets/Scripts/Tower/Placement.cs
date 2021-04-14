@@ -34,6 +34,10 @@ public class Placement : MonoBehaviour, IPointerDownHandler, IDropHandler
                 }
             }
         }
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            GameHandler.Instance.CancelPurchase();
+        }
     }
 
     public void OnDrop(PointerEventData eventData)

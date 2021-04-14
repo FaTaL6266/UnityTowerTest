@@ -52,6 +52,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameHandler.ApplyGameOver += GameOver;
         roundSpawning = GameHandler.Instance.transform.GetComponent<RoundSpawning>();
         roundSpawning.OnRoundStart += OnRoundStart;
         roundSpawning.spawnerList.Add(gameObject);
@@ -59,6 +60,12 @@ public class EnemySpawner : MonoBehaviour
         flashArea = transform.Find("ActiveLane").GetComponent<Image>();
 
         lowestEnemyStrength = soldier.GetComponent<Enemy>().EnemyStrength;
+    }
+
+    private void GameOver()
+    {
+        enemiesToSpawn.Clear();
+        bIsActive = false;
     }
 
     private void Update()

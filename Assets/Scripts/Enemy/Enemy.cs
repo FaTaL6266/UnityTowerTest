@@ -50,12 +50,18 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameHandler.ApplyGameOver += GameOver;
         audioSource = GetComponent<AudioSource>();
         moduleGeneration = GameHandler.Instance.transform.GetComponent<GenerateModule>();
         animator = GetComponent<Animator>();
         ParentSpawner = this.transform.parent.gameObject.GetComponent<EnemySpawner>();
         bAlive = true;
         bAttacking = false;
+    }
+
+    private void GameOver()
+    {
+        bAlive = false;
     }
 
     // Update is called once per frame

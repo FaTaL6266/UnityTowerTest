@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,10 +25,13 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
     // Other references
     public InventoryMenu inventoryMenu;
     public bool bIsGameOver = false;
+    private Animator animator;
 
+    // Events
+    public static event Action ApplyGameOver;
 
     #region Lives
-    private float lives = 100;
+    [SerializeField] private float lives;
 
     public void IncreaseLives(int value)
     {
@@ -37,22 +41,30 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
 
     public void DecreaseLives(int value)
     {
-        lives -= value;
-        UpdateUI();
-        if (lives <= 0) GameOver();
+        if (!bIsGameOver)
+        {
+            lives -= value;
+            UpdateUI();
+            if (lives <= 0) GameOver();
+        }
     }
 
     private void GameOver()
     {
-        if (bIsBuyingTower)
-        {
-            bIsBuyingTower = false;
-            Destroy(followTower);
-        }
 
-        bIsGameOver = true;
-        buyButton.interactable = false;
-        transform.Find("UI/GameOver").gameObject.SetActive(true);
+        if (!bIsGameOver)
+        {
+            bIsGameOver = true;
+            ApplyGameOver?.Invoke();
+            if (bIsBuyingTower)
+            {
+                bIsBuyingTower = false;
+                Destroy(followTower);
+            }
+            animator.SetTrigger("GameOver");
+            buyButton.interactable = false;
+            transform.Find("UI/GameOver").gameObject.SetActive(true);
+        }
     }
     #endregion
 
@@ -115,7 +127,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
     #endregion
 
     #region UI
-    private GameObject followTower;
+    public GameObject followTower;
     // Methods for the UI buttons on screen
     public void BuyButton()
     {
@@ -125,7 +137,6 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
             inventoryMenu.HideMenu();
 
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f;
             followTower = Instantiate(GameAssets.Instance.dummyTower, mousePosition, Quaternion.identity, transform.Find("Background/PlayArea"));
 
             ToggleButtons();
@@ -136,12 +147,17 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (followTower)
-            {
-                Destroy(followTower);
-                bIsBuyingTower = false;
-                buyButton.interactable = true;
-            }
+            CancelPurchase();
+        }
+    }
+
+    public void CancelPurchase()
+    {
+        if (followTower)
+        {
+            Destroy(followTower);
+            bIsBuyingTower = false;
+            buyButton.interactable = true;
         }
     }
 
@@ -167,6 +183,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
         {
             Destroy(MusicManager.Instance.gameObject);
         }
+        animator = transform.Find("Background").GetComponent<Animator>();
         GetComponent<PauseController>().UnpauseGame();
         inventory = new Inventory();
         UpdateUI();

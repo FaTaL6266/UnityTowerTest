@@ -48,6 +48,17 @@ public class GameAssets : MonoBehaviour
         return null;
     }
 
+    public EnemyLoadingScreenAssets[] enemyLoadings;
+
+    [Serializable]
+    public class EnemyLoadingScreenAssets
+    {
+        public Sprite enemyImage;
+        public String enemyDescription;
+    }
+
+
+    // Audio clips
     public AudioClip enemyHurt;
     public AudioClip enemyDeath;
     public AudioClip itemPickup;
