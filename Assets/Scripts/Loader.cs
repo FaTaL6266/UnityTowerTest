@@ -21,11 +21,18 @@ public static class Loader
 
     public static void Load(Scene scene)
     {
-        shareScene = scene;
-        bDoneLoading = false;
-        loaderCallbackAction = () => { SceneManager.LoadScene(scene.ToString()); };
+        if (scene == Scene.GameScene)
+        {
+            shareScene = scene;
+            bDoneLoading = false;
+            loaderCallbackAction = () => { SceneManager.LoadScene(scene.ToString()); };
 
-        SceneManager.LoadScene(Scene.Loading.ToString());
+            SceneManager.LoadScene(Scene.Loading.ToString());
+        }
+        else
+        {
+            SceneManager.LoadScene(scene.ToString());
+        }
     }
 
     public static void LoaderCallback()

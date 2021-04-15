@@ -8,16 +8,15 @@ public class LoaderCallback : MonoBehaviour
 {
     private bool firstUpdate = true;
     private TextMeshProUGUI continueText;
-    private bool bEnemySelected;
     private Image enemyImage;
     private TextMeshProUGUI enemyDescription;
 
     private void Awake()
     {
-        bEnemySelected = false;
         continueText = transform.Find("ContinueText").GetComponent<TextMeshProUGUI>();
         enemyImage = transform.Find("EnemyImage").GetComponent<Image>();
         enemyDescription = transform.Find("EnemyDescription").GetComponent<TextMeshProUGUI>();
+        SetEnemyDetails();
     }
 
     void Update()
@@ -30,8 +29,6 @@ public class LoaderCallback : MonoBehaviour
         else if (Loader.bDoneLoading == true && Loader.shareScene == Loader.Scene.GameScene)
         {
             RefreshLoadingScene();
-
-            if (!bEnemySelected) SetEnemyDetails();
 
             if (Input.anyKey)
             {
@@ -53,12 +50,8 @@ public class LoaderCallback : MonoBehaviour
 
     private void SetEnemyDetails()
     {
-        bEnemySelected = true;
         int randomEnemy = Random.Range(0, GameAssets.Instance.enemyLoadings.Length);
-        Debug.Log(randomEnemy);
         enemyImage.sprite = GameAssets.Instance.enemyLoadings[randomEnemy].enemyImage;
         enemyDescription.text = GameAssets.Instance.enemyLoadings[randomEnemy].enemyDescription;
-        enemyImage.color = new Color(1, 1, 1, 1);
-        enemyDescription.color = new Color(1, 1, 1, 1);
     }
 }

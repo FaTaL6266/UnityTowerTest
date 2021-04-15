@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Summit Studios
-  productName: UnityTowerTest
+  productName: T0W3R5
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -128,7 +128,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleVersion: 0.1.3
+  bundleVersion: 0.1.13
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0

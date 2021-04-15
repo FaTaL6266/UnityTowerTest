@@ -136,6 +136,9 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         if (health <= 0)
         {
             audioSource.PlayOneShot(GameAssets.Instance.towerDeath);
+            roundSpawning.OnRoundStart -= OnRoundStart;
+            roundSpawning.OnRoundEnd -= OnRoundEnd;
+            GameHandler.ApplyGameOver -= GameOver;
             Destroy(gameObject);
         }
         else audioSource.PlayOneShot(GameAssets.Instance.towerHurt);
