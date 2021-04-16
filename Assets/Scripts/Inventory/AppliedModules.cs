@@ -13,20 +13,11 @@ public class AppliedModules : MonoBehaviour
     private GameObject slot3;
     private GameObject slot4;
 
-    public void OnEnable()
-    {
-        UIBehaviourManager.OnTowerSelected += ShowMenuWithTowerModules;
-        UIBehaviourManager.OnModuleDrag += ShowMenuWithDefaultModuleSlots;
-    }
-
-    public void OnDisable()
-    {
-        UIBehaviourManager.OnTowerSelected -= ShowMenuWithTowerModules;
-        UIBehaviourManager.OnModuleDrag -= ShowMenuWithDefaultModuleSlots;
-    }
-
     private void Awake()
     {
+        GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>().OnTowerSelected += ShowMenuWithTowerModules;
+        GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>().OnModuleDrag += ShowMenuWithDefaultModuleSlots;
+
         defaultSlotSprite = GameAssets.Instance.defaultSlotSprite;
 
         slot1 = GameObject.Find("Module_1");

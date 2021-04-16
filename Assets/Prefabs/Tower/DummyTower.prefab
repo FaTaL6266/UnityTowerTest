@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1895036397913733736}
   - component: {fileID: 1308789861559672512}
   - component: {fileID: 3206984757932450691}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DummyTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

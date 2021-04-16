@@ -21,20 +21,12 @@ public class InventoryMenu : MonoBehaviour, IDropHandler
     public bool bIsVisible;
     public bool bIsShowingTowerData;
 
-    public void OnEnable()
-    {
-        UIBehaviourManager.OnTowerSelected += ShowMenuWithTowerStats;
-        UIBehaviourManager.OnModuleDrag += ShowMenuWithoutTowerStats;
-    }
-
-    public void OnDisable()
-    {
-        UIBehaviourManager.OnTowerSelected -= ShowMenuWithTowerStats;
-        UIBehaviourManager.OnModuleDrag -= ShowMenuWithoutTowerStats;
-    }
-
     private void Awake()
     {
+        GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>().OnTowerSelected += ShowMenuWithTowerStats;
+        GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>().OnModuleDrag += ShowMenuWithoutTowerStats;
+
+        Debug.Log(gameObject);
         bIsVisible = true;
         bIsShowingTowerData = false;
 
@@ -106,8 +98,6 @@ public class InventoryMenu : MonoBehaviour, IDropHandler
             bIsShowingTowerData = false;
             bIsVisible = false;
             gameObject.SetActive(false);
-            OnEnable();
-            transform.Find("ActiveModules").GetComponent<AppliedModules>().OnEnable();
         }
     }
 }

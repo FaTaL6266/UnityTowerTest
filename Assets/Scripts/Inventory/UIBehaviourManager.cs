@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UIBehaviourManager : MonoBehaviour
 {
-    public static event Action<Tower> OnTowerSelected;
-    public static event Action OnModuleDrag;
+    public event Action<Tower> OnTowerSelected;
+    public event Action OnModuleDrag;
 
     public void NewTowerSelected(Tower tower)
     {
