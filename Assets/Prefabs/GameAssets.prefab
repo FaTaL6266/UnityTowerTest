@@ -106,22 +106,60 @@ MonoBehaviour:
   - {fileID: 1731693522476830050, guid: dd60480ac7016074da248c65fdeadba7, type: 3}
   - {fileID: 1731693522476830050, guid: b510b771d65155d47b455b8bc6d2b45c, type: 3}
   enemyLoadings:
-  - enemyImage: {fileID: 21300000, guid: 9d357975332fd2545909005ee80340c3, type: 3}
-    enemyDescription: 
-  - enemyImage: {fileID: 21300000, guid: 0f470891f9db02a49ba009611cf14b19, type: 3}
-    enemyDescription: 
-  - enemyImage: {fileID: 21300000, guid: fb01e13eeba47c34f8a2c38f29c34d38, type: 3}
-    enemyDescription: 
-  - enemyImage: {fileID: 21300000, guid: 115a0b1cc4ae4ff42a109c789f6a1703, type: 3}
-    enemyDescription: 
-  - enemyImage: {fileID: 21300000, guid: b2c0af8a747a58f44961288c01ae9d51, type: 3}
-    enemyDescription: 
-  - enemyImage: {fileID: 21300000, guid: 047a1de6f808a2240a0212a57191a7db, type: 3}
-    enemyDescription: 
-  - enemyImage: {fileID: 21300000, guid: 04437f886272b8d46bacdf04f2bcc1d2, type: 3}
-    enemyDescription: 
-  - enemyImage: {fileID: 21300000, guid: 891dfe1a13c91814980e2ea7a3ee0734, type: 3}
-    enemyDescription: A placeholder blue checkmark!
+  - enemyName: Rat Boy
+    enemyImage: {fileID: 21300000, guid: d6fe56615c57d214f90d9f8e7fb0955b, type: 3}
+    enemyDescription: A spunky brown rat with a tendency for violance. Generally
+      considered the weakest, most disposable of the world-ender army, they have
+      very little potential for harm. Unversed in firearm use and safety, this enemy
+      opts to strike it's targets with the bayonet attached to the rifle it wields.
+      Just shoot them in the face, they die quick!
+  - enemyName: Fire Imp
+    enemyImage: {fileID: 21300000, guid: 0e189afc3df9b914fae51191f8fd934a, type: 3}
+    enemyDescription: A flaming ball of Energy and destruction in a bite sized package.
+      Do not underestimate their abilities in arson. They are relentless in their
+      attacks, utilizing scorching fireballs to deal some serious damage at range.
+      Though not a major threat alone, in larger numbers their heat can be quite
+      difficult to withstand.
+  - enemyName: Vine Rocketeer
+    enemyImage: {fileID: 21300000, guid: 8861d63e62fa40946b1e139a190a7401, type: 3}
+    enemyDescription: A plant equipped with rudimentary flight technology, allowing
+      it to hover above the ground. They are sturdy, but quite flammable. Deceptively
+      strong and seemingly lacking in a moral compass, they are supposedly the perfect
+      killing machine. This is, to no one's surprise, a misconception as plants do
+      not have feelings, nor are the capable of violence.
+  - enemyName: Fire Golem
+    enemyImage: {fileID: 21300000, guid: f60af6e67fcbe2f4abb35bdbcdd1886f, type: 3}
+    enemyDescription: A hulking mass of igneous rock and flaming hot magma, they
+      are considered to be the bedrock of the world-ender army as anything else is
+      too flimsy to support such an intergalactic threat. They can be chipped away
+      at safely from range, but be cautious of their devastating melee attacks. Luckily,
+      they're slow (and quite stupid).
+  - enemyName: The Slug Man
+    enemyImage: {fileID: 21300000, guid: d21ac9aa5f9252f4588c53d7616f6a94, type: 3}
+    enemyDescription: Wanted for crimes of "simply annoyed with him being in the
+      way too much," The Slugman is a force to be reckoned with. While he has devoted
+      himself to a life of pacifism, he is too dangerous of a target to be left alive.
+      That is, you can probably shoot at him all you want and it would be pretty
+      fun to watch him do nothing.
+  - enemyName: Scoots
+    enemyImage: {fileID: 21300000, guid: cc203f8b1b395f847960f1b6e8f41c5e, type: 3}
+    enemyDescription: Champion lumberjack and resident scratching post eviscerator,
+      his reign of terror knows no bounds. Out of all the genetic monstrosities from
+      the world-ender army, Scoots is said to be the most adorable. Don't mistake
+      this for affection however, as he single-handedly gutted several dozen men
+      with his claws. Tactical spray bottles are a recommended precaution whhen facing
+      him down.
+  - enemyName: Harms "The First" Armsly
+    enemyImage: {fileID: 21300000, guid: 33474951f04de3e4bb6aa83c3764cc26, type: 3}
+    enemyDescription: Losing his right arm in the Great War (ambiguous - Both), General
+      Armsly is about the toughest veteran one would have the displeasure of meeting.
+      With a shattering left-hook and a knack for violence, Armsly is incredibly
+      dangerous and should be dealth with quickly and efficiently. Contrary to popular
+      belief, Harms Armsly can and will open jars and they will do nothing to impede
+      his war path.
+  - enemyName: The Groog
+    enemyImage: {fileID: 21300000, guid: f2a2cfd72823be7438c32f8cfacf6100, type: 3}
+    enemyDescription: Placeholder description for Groog.
   enemyHurt: {fileID: 8300000, guid: 51ae20b72dbaa8e46b55e37a82fb9a9c, type: 3}
   enemyDeath: {fileID: 8300000, guid: 7b42c1efb6e03c847800c1eedebcb310, type: 3}
   itemPickup: {fileID: 8300000, guid: 619d87f7abe2f9b4ebe4a92d8b69a047, type: 3}

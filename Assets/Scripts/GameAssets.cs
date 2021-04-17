@@ -53,6 +53,7 @@ public class GameAssets : MonoBehaviour
     [Serializable]
     public class EnemyLoadingScreenAssets
     {
+        public String enemyName;
         public Sprite enemyImage;
         public String enemyDescription;
     }

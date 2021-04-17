@@ -10,12 +10,14 @@ public class LoaderCallback : MonoBehaviour
     private TextMeshProUGUI continueText;
     private Image enemyImage;
     private TextMeshProUGUI enemyDescription;
+    private TextMeshProUGUI enemyName;
 
     private void Awake()
     {
         continueText = transform.Find("ContinueText").GetComponent<TextMeshProUGUI>();
         enemyImage = transform.Find("EnemyImage").GetComponent<Image>();
         enemyDescription = transform.Find("EnemyDescription").GetComponent<TextMeshProUGUI>();
+        enemyName = transform.Find("EnemyName").GetComponent<TextMeshProUGUI>();
         SetEnemyDetails();
     }
 
@@ -53,5 +55,6 @@ public class LoaderCallback : MonoBehaviour
         int randomEnemy = Random.Range(0, GameAssets.Instance.enemyLoadings.Length);
         enemyImage.sprite = GameAssets.Instance.enemyLoadings[randomEnemy].enemyImage;
         enemyDescription.text = GameAssets.Instance.enemyLoadings[randomEnemy].enemyDescription;
+        enemyName.text = GameAssets.Instance.enemyLoadings[randomEnemy].enemyName;
     }
 }
