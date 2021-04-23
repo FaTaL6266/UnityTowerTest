@@ -107,8 +107,15 @@ public class Enemy : MonoBehaviour
     #region Damage and Death
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)
     {
-        if (incomingPhysicalDamage > physicalResistance) EnemyHealth -= incomingPhysicalDamage - physicalResistance;
-        if (incomingFireDamage > fireResistance) EnemyHealth -= incomingFireDamage - fireResistance;
+        float totalIncomingDamage = (incomingPhysicalDamage - physicalResistance) + (incomingFireDamage - fireResistance);
+        if (totalIncomingDamage <= 0)
+        {
+            health--;
+        }
+        else
+        {
+            health -= totalIncomingDamage;
+        }
 
         if (EnemyHealth <= 0)
         {

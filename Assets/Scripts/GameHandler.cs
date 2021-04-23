@@ -17,6 +17,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI towerCostText;
+    [SerializeField] private TextMeshProUGUI moveCostText;
     [SerializeField] private Image healthBar;
 
     // Button variables
@@ -113,7 +114,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
 
     public void IncreaseTowerCost()
     {
-        towerCost = (int)(towerCost * 1.33);
+        towerCost = (int)(towerCost * 1.20);
         moveCost = (int)(towerCost / 3);
         UpdateUI();
     }
@@ -173,6 +174,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
         livesText.text = lives.ToString();
         moneyText.text = "$" + money;
         towerCostText.text = "Buy Tower:\n$" + towerCost;
+        moveCostText.text = "Move Cost:\n$" + moveCost;
     }
     #endregion
 

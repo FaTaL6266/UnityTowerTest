@@ -32,7 +32,7 @@ RectTransform:
   m_GameObject: {fileID: 638931607951271430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 20, y: 0}
+  m_Offset: {x: -15, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -87,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 15}
+  m_Size: {x: 5, y: 50}
   m_EdgeRadius: 0
 --- !u!114 &-5046507370562938487
 MonoBehaviour:
@@ -110,7 +110,7 @@ MonoBehaviour:
   enemyStrength: 2
   enemyValue: 15
   attackRate: 1.5
-  health: 5
+  health: 3
   physicalDamage: 2
   fireDamage: 0
   physicalResistance: 0
@@ -142,8 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -575265346120811999, guid: c586ed87c2f76444c9782a24cf4cc412,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 850fb297abbe41b45ad19f5329cd53b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

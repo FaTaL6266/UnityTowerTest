@@ -39,8 +39,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &8008373084683245763
 Rigidbody2D:
@@ -76,7 +76,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -40, y: -50}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -87,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5, y: 50}
   m_EdgeRadius: 0
 --- !u!114 &8094319229552812655
 MonoBehaviour:
@@ -110,11 +110,11 @@ MonoBehaviour:
   enemyStrength: 100
   enemyValue: 15
   attackRate: 1.5
-  enemyHealth: 5
-  enemyPhysicalDamage: 2
-  enemyFireDamage: 0
-  enemyPhysicalDefense: 0
-  enemyFireDefense: 0
+  health: 0
+  physicalDamage: 0
+  fireDamage: 0
+  physicalResistance: 0
+  fireResistance: 0
 --- !u!222 &8366524620055877199
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 272ab27dab7fa874bbaf3419c76e8199, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc203f8b1b395f847960f1b6e8f41c5e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

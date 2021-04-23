@@ -24,6 +24,9 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     public float PhysicalResistance { get => physicalResistance; }
     public float FireResistance { get => fireResistance; }
 
+    // Health variable used to restore tower health at the end of the round
+    private float maxHealth;
+
     // Module variables
     public string[] modules;
 
@@ -46,6 +49,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = health;
         inventoryMenu = GameObject.Find("GameHandler/UI/UICanvas/TowerInfoPanel").GetComponent<InventoryMenu>();
         roundSpawning = GameHandler.Instance.GetComponent<RoundSpawning>();
         roundSpawning.OnRoundStart += OnRoundStart;
@@ -86,7 +90,11 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             GameObject moduleToRemove = GameAssets.Instance.GetModuleAsset(modules[moduleSlot]);
             switch (moduleToRemove.GetComponent<DragDrop>().moduleType)
             {
-                case ModuleType.HEALTH: this.health -= moduleToRemove.GetComponent<Health>().GetModifier(); break;
+                case ModuleType.HEALTH:
+                    this.health -= moduleToRemove.GetComponent<Health>().GetModifier();
+                    this.maxHealth -= moduleToRemove.GetComponent<Health>().GetModifier();
+                    if (this.health <= 0) this.health = 1;
+                    break;
                 case ModuleType.PHYSICALDAMAGE: this.physicalDamage -= moduleToRemove.GetComponent<PhysicalDamage>().GetModifier(); break;
                 case ModuleType.FIREDAMAGE: this.fireDamage -= moduleToRemove.GetComponent<FireDamage>().GetModifier(); break;
                 case ModuleType.FIRERATE: this.fireRate += moduleToRemove.GetComponent<FireRate>().GetModifier(); break;
@@ -98,7 +106,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         // Add the buff from the applied module to the tower
         switch (module.GetComponent<DragDrop>().moduleType)
         {
-            case ModuleType.HEALTH: this.health += module.GetComponent<Health>().GetModifier(); break;
+            case ModuleType.HEALTH: this.health += module.GetComponent<Health>().GetModifier(); this.maxHealth += module.GetComponent<Health>().GetModifier(); break;
             case ModuleType.PHYSICALDAMAGE: this.physicalDamage += module.GetComponent<PhysicalDamage>().GetModifier(); break;
             case ModuleType.FIREDAMAGE: this.fireDamage += module.GetComponent<FireDamage>().GetModifier(); break;
             case ModuleType.FIRERATE: this.fireRate -= module.GetComponent<FireRate>().GetModifier(); break;
@@ -119,6 +127,12 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     private void OnRoundEnd(object sender, EventArgs e)
     {
         CancelInvoke("FireProjectile");
+
+        int repairAmount = (int)(0.15 * maxHealth);
+
+        if (health + repairAmount > maxHealth) health = maxHealth;
+        else health += repairAmount;
+        inventoryMenu.ShowMenuWithTowerStats(inventoryMenu.tower);
     }
 
     private void FireProjectile()
@@ -131,10 +145,20 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)
     {
-        health -= ((incomingPhysicalDamage - (incomingPhysicalDamage * physicalResistance)) + (incomingFireDamage - (incomingFireDamage * fireResistance)));
+        float totalIncomingDamage = (incomingPhysicalDamage - physicalResistance) + (incomingFireDamage - fireResistance);
+        if (totalIncomingDamage <= 0)
+        {
+            health--;
+        }
+        else
+        {
+            health -= totalIncomingDamage;
+        }
+
         if (inventoryMenu.bIsVisible) inventoryMenu.ShowMenuWithTowerStats(this);
         if (health <= 0)
         {
+            GameHandler.Instance.DecreaseTowerCost();
             audioSource.PlayOneShot(GameAssets.Instance.towerDeath);
             roundSpawning.OnRoundStart -= OnRoundStart;
             roundSpawning.OnRoundEnd -= OnRoundEnd;
