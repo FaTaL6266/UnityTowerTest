@@ -110,9 +110,9 @@ MonoBehaviour:
   enemyStrength: 100
   enemyValue: 15
   attackRate: 1.5
-  health: 0
-  physicalDamage: 0
-  fireDamage: 0
+  health: 100
+  physicalDamage: 5
+  fireDamage: 5
   physicalResistance: 0
   fireResistance: 0
 --- !u!222 &9130524502976535006

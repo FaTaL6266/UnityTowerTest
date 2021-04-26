@@ -110,10 +110,10 @@ MonoBehaviour:
   enemyStrength: 100
   enemyValue: 15
   attackRate: 1.5
-  health: 0
-  physicalDamage: 0
+  health: 50
+  physicalDamage: 30
   fireDamage: 0
-  physicalResistance: 0
+  physicalResistance: 10
   fireResistance: 0
 --- !u!222 &7846084486329293796
 CanvasRenderer:

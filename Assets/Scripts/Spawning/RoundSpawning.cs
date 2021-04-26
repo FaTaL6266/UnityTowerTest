@@ -17,6 +17,7 @@ public class RoundSpawning : MonoBehaviour
 
     public event EventHandler OnRoundStart;
     public event EventHandler OnRoundEnd;
+    public event Action<int> OnEnemyStopSpawning;
 
     // Public variables
     public bool bInRound = false;
@@ -39,6 +40,11 @@ public class RoundSpawning : MonoBehaviour
     private IEnumerator ActivateSpawners()
     {
         if (round == 1) yield return new WaitForSeconds(0.1f);
+
+        foreach (GameObject spawner in spawnerList)
+        {
+            spawner.GetComponent<EnemySpawner>().bIsActive = false;
+        }
 
         int active = 0;
         while (active < amountToActivate)
@@ -70,22 +76,18 @@ public class RoundSpawning : MonoBehaviour
             round++;
             roundBudget = (int)(roundBudget * 1.1);
 
-            if (round < 5)
+            switch (round)
             {
-                amountToActivate = 2;
-                StartCoroutine(ActivateSpawners());
+                case 5: amountToActivate = 4; break;
+                case 10: amountToActivate = 6; break;
+                case 15: OnEnemyStopSpawning?.Invoke(GameAssets.Instance.corporal.GetComponent<Enemy>().EnemyStrength); break;
+                case 25: OnEnemyStopSpawning?.Invoke(GameAssets.Instance.sergeant.GetComponent<Enemy>().EnemyStrength); amountToActivate = 8; break;
+                case 40: OnEnemyStopSpawning?.Invoke(GameAssets.Instance.lieutenant.GetComponent<Enemy>().EnemyStrength); break;
+                default: Debug.Log("This is the default switch"); break;
             }
 
-            else if (round < 10)
-            {
-                amountToActivate = 4;
-                StartCoroutine(ActivateSpawners());
-            }
-            else
-            {
-                amountToActivate = 6;
-                StartCoroutine(ActivateSpawners());
-            }
+            StartCoroutine(ActivateSpawners());
+
             startRoundButton.interactable = true;
             startRoundButtonText.text = "Start round " + round.ToString();
         }
@@ -95,11 +97,35 @@ public class RoundSpawning : MonoBehaviour
     {
         amountCompleted++;
 
-        if (amountCompleted == amountToActivate)
+        if (amountCompleted >= amountToActivate)
         {
             RoundComplete();
         }
     }
 
+    public void ActivateRoundCheat()
+    {
+        if (!GameHandler.Instance.bIsGameOver)
+        {
+            bInRound = false;
+            amountCompleted = 0;
+            round++;
+            roundBudget = (int)(roundBudget * 1.1);
 
+            switch (round)
+            {
+                case 5: amountToActivate = 4; break;
+                case 10: amountToActivate = 6; break;
+                case 15: OnEnemyStopSpawning?.Invoke(GameAssets.Instance.corporal.GetComponent<Enemy>().EnemyStrength); break;
+                case 25: OnEnemyStopSpawning?.Invoke(GameAssets.Instance.sergeant.GetComponent<Enemy>().EnemyStrength); amountToActivate = 8; break;
+                case 40: OnEnemyStopSpawning?.Invoke(GameAssets.Instance.lieutenant.GetComponent<Enemy>().EnemyStrength); break;
+                default: ; break;
+            }
+
+            StartCoroutine(ActivateSpawners());
+
+            startRoundButton.interactable = true;
+            startRoundButtonText.text = "Start round " + round.ToString();
+        }
+    }
 }

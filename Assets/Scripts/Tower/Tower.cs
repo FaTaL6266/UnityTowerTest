@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 {
     // Tower stat variables
     private float health = 50f;
-    private float fireRate = 1.5f;
+    private float fireRate = 100f;
     private float projectileSpeed = 25f;
     private float physicalDamage = 1f;
     private float fireDamage = 0f;
@@ -71,7 +71,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         if (roundSpawning.bInRound)
         {
-            InvokeRepeating("FireProjectile", 1.0f, fireRate);
+            Invoke("FireProjectile", 1.0f);
         }
     }
 
@@ -97,7 +97,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
                     break;
                 case ModuleType.PHYSICALDAMAGE: this.physicalDamage -= moduleToRemove.GetComponent<PhysicalDamage>().GetModifier(); break;
                 case ModuleType.FIREDAMAGE: this.fireDamage -= moduleToRemove.GetComponent<FireDamage>().GetModifier(); break;
-                case ModuleType.FIRERATE: this.fireRate += moduleToRemove.GetComponent<FireRate>().GetModifier(); break;
+                case ModuleType.FIRERATE: this.fireRate -= moduleToRemove.GetComponent<FireRate>().GetModifier(); break;
                 case ModuleType.PHYSICALRESISTANCE: this.physicalResistance -= moduleToRemove.GetComponent<PhysicalResistance>().GetModifier(); break;
                 case ModuleType.FIRERESISTANCE: this.fireResistance -= moduleToRemove.GetComponent<FireResistance>().GetModifier(); break;
             }
@@ -109,7 +109,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             case ModuleType.HEALTH: this.health += module.GetComponent<Health>().GetModifier(); this.maxHealth += module.GetComponent<Health>().GetModifier(); break;
             case ModuleType.PHYSICALDAMAGE: this.physicalDamage += module.GetComponent<PhysicalDamage>().GetModifier(); break;
             case ModuleType.FIREDAMAGE: this.fireDamage += module.GetComponent<FireDamage>().GetModifier(); break;
-            case ModuleType.FIRERATE: this.fireRate -= module.GetComponent<FireRate>().GetModifier(); break;
+            case ModuleType.FIRERATE: this.fireRate += module.GetComponent<FireRate>().GetModifier(); break;
             case ModuleType.PHYSICALRESISTANCE: this.physicalResistance += module.GetComponent<PhysicalResistance>().GetModifier(); break;
             case ModuleType.FIRERESISTANCE: this.fireResistance += module.GetComponent<FireResistance>().GetModifier(); break;
         }
@@ -121,7 +121,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     private void OnRoundStart(object sender, EventArgs e)
     {
-        InvokeRepeating("FireProjectile", 1.0f, fireRate);
+        Invoke("FireProjectile", 1.0f);
     }
 
     private void OnRoundEnd(object sender, EventArgs e)
@@ -132,7 +132,8 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         if (health + repairAmount > maxHealth) health = maxHealth;
         else health += repairAmount;
-        inventoryMenu.ShowMenuWithTowerStats(inventoryMenu.tower);
+
+        if (inventoryMenu.bIsVisible) inventoryMenu.ShowMenuWithTowerStats(inventoryMenu.tower);
     }
 
     private void FireProjectile()
@@ -141,6 +142,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         audioSource.PlayOneShot(GameAssets.Instance.towerFire);
         GameObject spawnedProjectile = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity, GameObject.Find("GameHandler/Background/PlayArea").transform);
         spawnedProjectile.GetComponent<Projectile>().SetProperties(projectileSpeed, physicalDamage, fireDamage, gameObject.transform.localScale);
+        Invoke("FireProjectile", 200.0f / fireRate);
     }
 
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)
@@ -158,6 +160,8 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         if (inventoryMenu.bIsVisible) inventoryMenu.ShowMenuWithTowerStats(this);
         if (health <= 0)
         {
+            if (inventoryMenu.bIsVisible) inventoryMenu.HideMenu();
+            placement.bIsPlacementOccupied = false;
             GameHandler.Instance.DecreaseTowerCost();
             audioSource.PlayOneShot(GameAssets.Instance.towerDeath);
             roundSpawning.OnRoundStart -= OnRoundStart;
@@ -239,7 +243,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
             if (roundSpawning.bInRound)
             {
-                InvokeRepeating("FireProjectile", 1.0f, fireRate);
+                Invoke("FireProjectile", 1.0f);
             }
         }
     }

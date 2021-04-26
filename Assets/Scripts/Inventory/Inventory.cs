@@ -50,4 +50,14 @@ public class Inventory
         }
         return false;
     }
+
+    // For debugging purposes - add 100 of each item to the inventory
+    public void CheatAddItems()
+    {
+        for (int i = 0; i < stock.Length; i++)
+        {
+            stock[i] = 100;
+            slots[i].transform.Find("Text").GetComponent<TextMeshProUGUI>().text = stock[i].ToString();
+        }
+    }
 }

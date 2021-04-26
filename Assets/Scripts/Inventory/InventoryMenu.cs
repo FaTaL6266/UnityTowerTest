@@ -26,7 +26,6 @@ public class InventoryMenu : MonoBehaviour, IDropHandler
         GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>().OnTowerSelected += ShowMenuWithTowerStats;
         GameObject.Find("GameHandler/UI/UICanvas").GetComponent<UIBehaviourManager>().OnModuleDrag += ShowMenuWithoutTowerStats;
 
-        Debug.Log(gameObject);
         bIsVisible = true;
         bIsShowingTowerData = false;
 

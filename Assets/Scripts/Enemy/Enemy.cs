@@ -61,7 +61,11 @@ public class Enemy : MonoBehaviour
 
     private void GameOver()
     {
-        bAlive = false;
+        if (bAlive)
+        {
+            bAlive = false;
+            CancelInvoke("AttackTower");
+        }
     }
 
     // Update is called once per frame
@@ -76,7 +80,7 @@ public class Enemy : MonoBehaviour
     #region Attack
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Tower"))
+        if (collision.gameObject.CompareTag("Tower") && bAlive)
         {
             towerToAttack = collision.gameObject.GetComponent<Tower>();
             bAttacking = true;
@@ -108,14 +112,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float incomingPhysicalDamage, float incomingFireDamage)
     {
         float totalIncomingDamage = (incomingPhysicalDamage - physicalResistance) + (incomingFireDamage - fireResistance);
-        if (totalIncomingDamage <= 0)
-        {
-            health--;
-        }
-        else
-        {
-            health -= totalIncomingDamage;
-        }
+
+        if (totalIncomingDamage <= 0) health -= 1;
+        else health -= totalIncomingDamage;
 
         if (EnemyHealth <= 0)
         {

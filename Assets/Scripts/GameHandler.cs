@@ -26,6 +26,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
     // Other references
     public InventoryMenu inventoryMenu;
     public bool bIsGameOver = false;
+    public bool bDebugMode = false;
     private Animator animator;
 
     // Events
@@ -42,7 +43,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
 
     public void DecreaseLives(int value)
     {
-        if (!bIsGameOver)
+        if (!bIsGameOver && !bDebugMode)
         {
             lives -= value;
             UpdateUI();
@@ -52,7 +53,6 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
 
     private void GameOver()
     {
-
         if (!bIsGameOver)
         {
             bIsGameOver = true;
@@ -129,6 +129,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
 
     #region UI
     public GameObject followTower;
+
     // Methods for the UI buttons on screen
     public void BuyButton()
     {

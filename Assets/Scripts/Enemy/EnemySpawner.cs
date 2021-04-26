@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     private int round;
     private float spawnRate = 1.75f;
     private int roundBudget;
-    private int lowestEnemyStrength;
+    public int lowestEnemyStrength;
 
     // Lists of enemies
     private List<GameObject> enemiesToSpawn = new List<GameObject>();
@@ -56,15 +56,22 @@ public class EnemySpawner : MonoBehaviour
         roundSpawning = GameHandler.Instance.transform.GetComponent<RoundSpawning>();
         roundSpawning.OnRoundStart += OnRoundStart;
         roundSpawning.spawnerList.Add(gameObject);
+        roundSpawning.OnEnemyStopSpawning += StopSpawningEnemy;
 
         flashArea = transform.Find("ActiveLane").GetComponent<Image>();
 
         lowestEnemyStrength = soldier.GetComponent<Enemy>().EnemyStrength;
     }
 
+    private void StopSpawningEnemy(int newLowestEnemyStrength)
+    {
+        lowestEnemyStrength = newLowestEnemyStrength;
+    }
+
     private void GameOver()
     {
         enemiesToSpawn.Clear();
+        CancelInvoke("Spawn");
         bIsActive = false;
     }
 
@@ -109,12 +116,12 @@ public class EnemySpawner : MonoBehaviour
 
         this.roundBudget = roundSpawning.roundBudget;
         this.round = roundSpawning.round;
-        
+
         // Waterfall spawning method - stupid
         while (roundBudget >= lowestEnemyStrength)
         {
             // Soldier
-            if (Random.Range(0, 101) > 25 && (roundBudget >= soldier.GetComponent<Enemy>().EnemyStrength))
+            if (Random.Range(0, 101) > 25 && (roundBudget >= soldier.GetComponent<Enemy>().EnemyStrength) && round < 15)
             {
                 //Debug.Log("Soldier: Decreasing budget by " + soldier.EnemyStrength.ToString());
                 enemiesToSpawn.Add(soldier);
@@ -123,7 +130,7 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 // Corporal
-                if (Random.Range(0, 101) > 40 && (roundBudget >= corporal.GetComponent<Enemy>().EnemyStrength) && round >= 2)
+                if (Random.Range(0, 101) > 40 && (roundBudget >= corporal.GetComponent<Enemy>().EnemyStrength) && round >= 2 && round < 25)
                 {
                     //Debug.Log("Corporal: Decreasing budget by " + corporal.EnemyStrength.ToString());
                     enemiesToSpawn.Add(corporal);
@@ -132,7 +139,7 @@ public class EnemySpawner : MonoBehaviour
                 else
                 {
                     // Sergeant
-                    if (Random.Range(0, 101) > 50 && (roundBudget >= sergeant.GetComponent<Enemy>().EnemyStrength) && round >= 4)
+                    if (Random.Range(0, 101) > 50 && (roundBudget >= sergeant.GetComponent<Enemy>().EnemyStrength) && round >= 4 && round < 40)
                     {
                         //Debug.Log("Sergeant: Decreasing budget by " + sergeant.GetComponent<Sergeant>().EnemyStrength.ToString());
                         enemiesToSpawn.Add(sergeant);
@@ -218,7 +225,4 @@ public class EnemySpawner : MonoBehaviour
             bIsActive = false;
         }
     }
-
-
-
 }
