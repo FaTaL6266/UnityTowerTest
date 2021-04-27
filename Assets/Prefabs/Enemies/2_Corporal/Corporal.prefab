@@ -125,11 +125,11 @@ MonoBehaviour:
   rare: 95.5
   exotic: 99.2
   legendary: 99.8
-  enemySpeed: 12.25
+  enemySpeed: 21.25
   enemyStrength: 5
   enemyValue: 25
   attackRate: 2.1
-  health: 6
+  health: 5
   physicalDamage: 0
   fireDamage: 1
   physicalResistance: 0

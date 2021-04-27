@@ -671,6 +671,41 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 24307533}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &32093786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32093787}
+  m_Layer: 0
+  m_Name: Projectiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &32093787
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32093786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1701998766}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &39883737 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6331893307651694421, guid: 1c3d21603295b1b488038deb1313b190,
@@ -1092,6 +1127,7 @@ GameObject:
   - component: {fileID: 96100989}
   - component: {fileID: 96100988}
   - component: {fileID: 96100990}
+  - component: {fileID: 96100991}
   m_Layer: 5
   m_Name: FireRate_Tier3
   m_TagString: Untagged
@@ -1169,6 +1205,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &96100991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96100986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Rate  (Rare)
+  content: Increase fire rate by 20 points.
 --- !u!1 &96142667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,6 +1766,7 @@ GameObject:
   - component: {fileID: 224540663}
   - component: {fileID: 224540662}
   - component: {fileID: 224540664}
+  - component: {fileID: 224540665}
   m_Layer: 5
   m_Name: PhysicalDamage_Tier4
   m_TagString: Untagged
@@ -1793,6 +1844,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &224540665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224540660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Damage (Exotic)
+  content: Increases damage by 8 points.
 --- !u!1001 &227123530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3558,6 +3623,7 @@ GameObject:
   - component: {fileID: 394899664}
   - component: {fileID: 394899663}
   - component: {fileID: 394899665}
+  - component: {fileID: 394899666}
   m_Layer: 5
   m_Name: PhysicalDamage_Tier3
   m_TagString: Untagged
@@ -3635,6 +3701,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &394899666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394899661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Damage (Rare)
+  content: Increases damage by 6 points.
 --- !u!1 &397500334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,6 +3727,7 @@ GameObject:
   - component: {fileID: 397500337}
   - component: {fileID: 397500336}
   - component: {fileID: 397500338}
+  - component: {fileID: 397500339}
   m_Layer: 5
   m_Name: FireDamage_Tier1
   m_TagString: Untagged
@@ -3724,6 +3805,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &397500339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397500334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Damage (Common)
+  content: Increase fire damage by 2 points.
 --- !u!224 &412887631 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6331893307651694421, guid: 1c3d21603295b1b488038deb1313b190,
@@ -6086,6 +6181,101 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 560349619}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &603023055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603023056}
+  - component: {fileID: 603023059}
+  - component: {fileID: 603023058}
+  - component: {fileID: 603023057}
+  m_Layer: 0
+  m_Name: TooltipCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &603023056
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603023055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1233704927}
+  m_Father: {fileID: 1688909244}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &603023057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603023055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da59ba8f0893fc04a910535815b1414a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: {fileID: 1233704928}
+--- !u!114 &603023058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603023055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 1
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &603023059
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603023055}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 1863970376}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 9999
+  m_TargetDisplay: 0
 --- !u!1 &640350114
 GameObject:
   m_ObjectHideFlags: 0
@@ -6823,6 +7013,7 @@ GameObject:
   - component: {fileID: 718441521}
   - component: {fileID: 718441520}
   - component: {fileID: 718441522}
+  - component: {fileID: 718441523}
   m_Layer: 5
   m_Name: FireResistance_Tier2
   m_TagString: Untagged
@@ -6900,6 +7091,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &718441523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718441518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Resistance (Uncommon)
+  content: Decreases incoming fire damage by 4 points down to a minimum of 1.
 --- !u!1 &737799394
 GameObject:
   m_ObjectHideFlags: 0
@@ -6912,6 +7117,7 @@ GameObject:
   - component: {fileID: 737799397}
   - component: {fileID: 737799396}
   - component: {fileID: 737799398}
+  - component: {fileID: 737799399}
   m_Layer: 5
   m_Name: FireResistance_Tier3
   m_TagString: Untagged
@@ -6989,6 +7195,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &737799399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737799394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Resistance (Rare)
+  content: Decreases incoming fire damage by 6 points down to a minimum of 1.
 --- !u!1 &738021945
 GameObject:
   m_ObjectHideFlags: 0
@@ -7001,6 +7221,7 @@ GameObject:
   - component: {fileID: 738021948}
   - component: {fileID: 738021947}
   - component: {fileID: 738021949}
+  - component: {fileID: 738021950}
   m_Layer: 5
   m_Name: FireRate_Tier1
   m_TagString: Untagged
@@ -7078,6 +7299,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &738021950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738021945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Rate  (Common)
+  content: Increase fire rate by 10 points.
 --- !u!1 &777235245
 GameObject:
   m_ObjectHideFlags: 0
@@ -7090,6 +7325,7 @@ GameObject:
   - component: {fileID: 777235248}
   - component: {fileID: 777235247}
   - component: {fileID: 777235249}
+  - component: {fileID: 777235250}
   m_Layer: 5
   m_Name: FireDamage_Tier3
   m_TagString: Untagged
@@ -7167,6 +7403,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &777235250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777235245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Damage (Rare)
+  content: Increase fire damage by 6 points.
 --- !u!1 &788460242
 GameObject:
   m_ObjectHideFlags: 0
@@ -7179,6 +7429,7 @@ GameObject:
   - component: {fileID: 788460245}
   - component: {fileID: 788460244}
   - component: {fileID: 788460246}
+  - component: {fileID: 788460247}
   m_Layer: 5
   m_Name: PhysicalResistance_Tier2
   m_TagString: Untagged
@@ -7256,6 +7507,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &788460247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788460242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Resistance (Uncommon)
+  content: Decreases incoming normal damage by 4 points down to a minimum of 1.
 --- !u!1 &790764308
 GameObject:
   m_ObjectHideFlags: 0
@@ -7402,6 +7667,7 @@ GameObject:
   - component: {fileID: 802946184}
   - component: {fileID: 802946183}
   - component: {fileID: 802946185}
+  - component: {fileID: 802946186}
   m_Layer: 5
   m_Name: FireRate_Tier5
   m_TagString: Untagged
@@ -7479,6 +7745,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &802946186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802946181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Rate  (Legendary)
+  content: Increase fire rate by 30 points.
 --- !u!1001 &819968013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8279,6 +8559,7 @@ GameObject:
   - component: {fileID: 879833117}
   - component: {fileID: 879833116}
   - component: {fileID: 879833118}
+  - component: {fileID: 879833119}
   m_Layer: 5
   m_Name: PhysicalDamage_Tier1
   m_TagString: Untagged
@@ -8356,6 +8637,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &879833119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879833114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Damage (Common)
+  content: Increases damage by 2 points.
 --- !u!1 &893003694
 GameObject:
   m_ObjectHideFlags: 0
@@ -8917,6 +9212,7 @@ GameObject:
   - component: {fileID: 923899798}
   - component: {fileID: 923899797}
   - component: {fileID: 923899799}
+  - component: {fileID: 923899800}
   m_Layer: 5
   m_Name: Health_Tier4
   m_TagString: Untagged
@@ -8994,6 +9290,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &923899800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923899795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Health (Exotic)
+  content: Increases max health by 8 points.
 --- !u!1001 &944442347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9400,6 +9710,7 @@ GameObject:
   - component: {fileID: 987171538}
   - component: {fileID: 987171537}
   - component: {fileID: 987171539}
+  - component: {fileID: 987171540}
   m_Layer: 5
   m_Name: PhysicalResistance_Tier4
   m_TagString: Untagged
@@ -9477,6 +9788,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &987171540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987171535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Resistance (Exotic)
+  content: Decreases incoming normal damage by 8 points down to a minimum of 1.
 --- !u!1001 &988010001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10208,6 +10533,7 @@ GameObject:
   - component: {fileID: 1081523662}
   - component: {fileID: 1081523661}
   - component: {fileID: 1081523663}
+  - component: {fileID: 1081523664}
   m_Layer: 5
   m_Name: FireDamage_Tier4
   m_TagString: Untagged
@@ -10285,6 +10611,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1081523664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081523659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Damage (Exotic)
+  content: Increase fire damage by 8 points.
 --- !u!1 &1081993721
 GameObject:
   m_ObjectHideFlags: 0
@@ -10635,6 +10975,7 @@ GameObject:
   - component: {fileID: 1086457241}
   - component: {fileID: 1086457240}
   - component: {fileID: 1086457242}
+  - component: {fileID: 1086457243}
   m_Layer: 5
   m_Name: PhysicalResistance_Tier3
   m_TagString: Untagged
@@ -10712,6 +11053,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1086457243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086457238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Resistance (Rare)
+  content: Decreases incoming normal damage by 6 points down to a minimum of 1.
 --- !u!1 &1095128900
 GameObject:
   m_ObjectHideFlags: 0
@@ -11212,6 +11567,7 @@ GameObject:
   - component: {fileID: 1132980402}
   - component: {fileID: 1132980401}
   - component: {fileID: 1132980403}
+  - component: {fileID: 1132980404}
   m_Layer: 5
   m_Name: FireRate_Tier4
   m_TagString: Untagged
@@ -11289,6 +11645,153 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1132980404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132980399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Rate  (Exotic)
+  content: Increase fire rate by 25 points.
+--- !u!1 &1143639189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1143639190}
+  - component: {fileID: 1143639192}
+  - component: {fileID: 1143639191}
+  m_Layer: 0
+  m_Name: Header
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1143639190
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143639189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1233704927}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1143639191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143639189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Header
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4283782499
+  m_fontColor: {r: 0.38679248, g: 0.33388218, b: 0.33388218, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1143639192
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143639189}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1181431062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11800,6 +12303,161 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1084177032}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1233704926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233704927}
+  - component: {fileID: 1233704933}
+  - component: {fileID: 1233704932}
+  - component: {fileID: 1233704931}
+  - component: {fileID: 1233704930}
+  - component: {fileID: 1233704929}
+  - component: {fileID: 1233704928}
+  m_Layer: 0
+  m_Name: Tooltip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1233704927
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233704926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1143639190}
+  - {fileID: 2102660377}
+  m_Father: {fileID: 603023056}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.4652405, y: 619.7005}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1233704928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233704926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea167ee60f20f74ab34afe1303d1ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerField: {fileID: 1143639191}
+  contentField: {fileID: 2102660378}
+  layoutElement: {fileID: 1233704929}
+  characterWrapLimit: 40
+--- !u!114 &1233704929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233704926}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 250
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &1233704930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233704926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
+--- !u!114 &1233704931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233704926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 5
+    m_Right: 5
+    m_Top: 5
+    m_Bottom: 5
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+--- !u!114 &1233704932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233704926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1233704933
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233704926}
+  m_CullTransparentMesh: 0
 --- !u!1 &1256055514
 GameObject:
   m_ObjectHideFlags: 0
@@ -12209,6 +12867,7 @@ GameObject:
   - component: {fileID: 1268130773}
   - component: {fileID: 1268130772}
   - component: {fileID: 1268130774}
+  - component: {fileID: 1268130775}
   m_Layer: 5
   m_Name: FireDamage_Tier5
   m_TagString: Untagged
@@ -12286,6 +12945,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1268130775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268130770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Damage (Legendary)
+  content: Increase fire damage by 10 points.
 --- !u!224 &1272020541 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6331893307651694421, guid: 1c3d21603295b1b488038deb1313b190,
@@ -12559,6 +13232,7 @@ GameObject:
   - component: {fileID: 1285848305}
   - component: {fileID: 1285848304}
   - component: {fileID: 1285848306}
+  - component: {fileID: 1285848307}
   m_Layer: 5
   m_Name: Health_Tier1
   m_TagString: Untagged
@@ -12636,6 +13310,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1285848307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285848302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Health (Common)
+  content: Increases max health by 2 points.
 --- !u!1 &1286943673
 GameObject:
   m_ObjectHideFlags: 0
@@ -12648,6 +13336,7 @@ GameObject:
   - component: {fileID: 1286943676}
   - component: {fileID: 1286943675}
   - component: {fileID: 1286943677}
+  - component: {fileID: 1286943678}
   m_Layer: 5
   m_Name: FireResistance_Tier4
   m_TagString: Untagged
@@ -12725,6 +13414,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1286943678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286943673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Resistance (Exotic)
+  content: Decreases incoming fire damage by 8 points down to a minimum of 1.
 --- !u!1001 &1289881111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13930,6 +14633,7 @@ GameObject:
   - component: {fileID: 1377740739}
   - component: {fileID: 1377740738}
   - component: {fileID: 1377740740}
+  - component: {fileID: 1377740741}
   m_Layer: 5
   m_Name: FireRate_Tier2
   m_TagString: Untagged
@@ -14007,6 +14711,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1377740741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377740736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Rate  (Uncommon)
+  content: Increase fire rate by 15 points.
 --- !u!1001 &1394699490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14144,6 +14862,7 @@ GameObject:
   - component: {fileID: 1410538400}
   - component: {fileID: 1410538399}
   - component: {fileID: 1410538401}
+  - component: {fileID: 1410538402}
   m_Layer: 5
   m_Name: FireResistance_Tier5
   m_TagString: Untagged
@@ -14221,6 +14940,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1410538402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410538397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Resistance (Legendary)
+  content: Decreases incoming fire damage by 10 points down to a minimum of 1.
 --- !u!1 &1412559658
 GameObject:
   m_ObjectHideFlags: 0
@@ -14233,6 +14966,7 @@ GameObject:
   - component: {fileID: 1412559661}
   - component: {fileID: 1412559660}
   - component: {fileID: 1412559662}
+  - component: {fileID: 1412559663}
   m_Layer: 5
   m_Name: Health_Tier2
   m_TagString: Untagged
@@ -14310,6 +15044,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1412559663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412559658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Health (Uncommon)
+  content: Increases max health by 4 points.
 --- !u!1001 &1422552828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16274,6 +17022,7 @@ GameObject:
   - component: {fileID: 1622012124}
   - component: {fileID: 1622012123}
   - component: {fileID: 1622012125}
+  - component: {fileID: 1622012126}
   m_Layer: 5
   m_Name: FireDamage_Tier2
   m_TagString: Untagged
@@ -16351,6 +17100,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1622012126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622012121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Damage (Uncommon)
+  content: Increase fire damage by 4 points.
 --- !u!1 &1622816025
 GameObject:
   m_ObjectHideFlags: 0
@@ -17026,6 +17789,7 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1720236335}
   - {fileID: 2048577329}
+  - {fileID: 603023056}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17081,6 +17845,7 @@ MonoBehaviour:
   buyButton: {fileID: 551727931}
   inventoryMenu: {fileID: 245535991}
   bIsGameOver: 0
+  bDebugMode: 0
   lives: 100
   bIsBuyingTower: 0
   bIsMovingTower: 0
@@ -17319,6 +18084,7 @@ RectTransform:
   - {fileID: 1052218433}
   - {fileID: 312436535}
   - {fileID: 1352815492}
+  - {fileID: 32093787}
   m_Father: {fileID: 1720236335}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17464,6 +18230,7 @@ GameObject:
   - component: {fileID: 1712779633}
   - component: {fileID: 1712779632}
   - component: {fileID: 1712779634}
+  - component: {fileID: 1712779635}
   m_Layer: 5
   m_Name: PhysicalDamage_Tier2
   m_TagString: Untagged
@@ -17541,6 +18308,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1712779635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712779630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Damage (Uncommon)
+  content: Increases damage by 4 points.
 --- !u!1 &1713166425
 GameObject:
   m_ObjectHideFlags: 0
@@ -17553,6 +18334,7 @@ GameObject:
   - component: {fileID: 1713166428}
   - component: {fileID: 1713166427}
   - component: {fileID: 1713166429}
+  - component: {fileID: 1713166430}
   m_Layer: 5
   m_Name: FireResistance_Tier1
   m_TagString: Untagged
@@ -17630,6 +18412,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1713166430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713166425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Fire Resistance (Common)
+  content: Decreases incoming fire damage by 2 points down to a minimum of 1.
 --- !u!1 &1720236334
 GameObject:
   m_ObjectHideFlags: 0
@@ -18403,6 +19199,7 @@ GameObject:
   - component: {fileID: 1762622948}
   - component: {fileID: 1762622947}
   - component: {fileID: 1762622949}
+  - component: {fileID: 1762622950}
   m_Layer: 5
   m_Name: PhysicalResistance_Tier5
   m_TagString: Untagged
@@ -18480,6 +19277,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1762622950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762622945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Resistance (Legendary)
+  content: Decreases incoming normal damage by 10 points down to a minimum of 1.
 --- !u!1 &1764334452
 GameObject:
   m_ObjectHideFlags: 0
@@ -18954,6 +19765,7 @@ GameObject:
   - component: {fileID: 1824345535}
   - component: {fileID: 1824345534}
   - component: {fileID: 1824345536}
+  - component: {fileID: 1824345537}
   m_Layer: 5
   m_Name: PhysicalResistance_Tier1
   m_TagString: Untagged
@@ -19031,6 +19843,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1824345537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824345532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Resistance (Common)
+  content: Decreases incoming normal damage by 2 points down to a minimum of 1.
 --- !u!1 &1827671299
 GameObject:
   m_ObjectHideFlags: 0
@@ -19043,6 +19869,7 @@ GameObject:
   - component: {fileID: 1827671302}
   - component: {fileID: 1827671301}
   - component: {fileID: 1827671303}
+  - component: {fileID: 1827671304}
   m_Layer: 5
   m_Name: PhysicalDamage_Tier5
   m_TagString: Untagged
@@ -19120,6 +19947,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1827671304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827671299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Damage (Legendary)
+  content: Increases damage by 10 points.
 --- !u!1001 &1829239395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20000,6 +20841,7 @@ GameObject:
   - component: {fileID: 1898193836}
   - component: {fileID: 1898193835}
   - component: {fileID: 1898193837}
+  - component: {fileID: 1898193838}
   m_Layer: 5
   m_Name: Health_Tier5
   m_TagString: Untagged
@@ -20077,6 +20919,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &1898193838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898193833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Health (Legendary)
+  content: Increases max health by 10 points.
 --- !u!1001 &1919691787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21587,6 +22443,7 @@ GameObject:
   - component: {fileID: 2089120902}
   - component: {fileID: 2089120901}
   - component: {fileID: 2089120903}
+  - component: {fileID: 2089120904}
   m_Layer: 5
   m_Name: Health_Tier3
   m_TagString: Untagged
@@ -21664,6 +22521,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!114 &2089120904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089120899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb91dfa5562c474989329791092c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Health (Rare)
+  content: Increases max health by 6 points.
 --- !u!1001 &2098025918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21923,6 +22794,139 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2098836256}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2102660376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2102660377}
+  - component: {fileID: 2102660379}
+  - component: {fileID: 2102660378}
+  m_Layer: 0
+  m_Name: Content
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2102660377
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102660376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1233704927}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2102660378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102660376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Content
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4283782499
+  m_fontColor: {r: 0.38679248, g: 0.33388218, b: 0.33388218, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 14
+  m_fontSizeBase: 14
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2102660379
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102660376}
+  m_CullTransparentMesh: 0
 --- !u!1001 &2104638957
 PrefabInstance:
   m_ObjectHideFlags: 0

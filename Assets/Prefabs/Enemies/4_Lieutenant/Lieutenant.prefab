@@ -110,7 +110,7 @@ MonoBehaviour:
   enemyStrength: 15
   enemyValue: 65
   attackRate: 3.2
-  health: 30
+  health: 25
   physicalDamage: 10
   fireDamage: 10
   physicalResistance: 5

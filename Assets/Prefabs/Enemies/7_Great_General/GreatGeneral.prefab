@@ -106,10 +106,10 @@ MonoBehaviour:
   rare: 30
   exotic: 80
   legendary: 95
-  enemySpeed: 50
-  enemyStrength: 100
-  enemyValue: 15
-  attackRate: 1.5
+  enemySpeed: 10
+  enemyStrength: 65
+  enemyValue: 200
+  attackRate: 4.2
   health: 50
   physicalDamage: 30
   fireDamage: 0

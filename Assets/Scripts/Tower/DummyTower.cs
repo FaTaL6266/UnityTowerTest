@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DummyTower : MonoBehaviour
-{
-    // Private variables only changeable through script
-    private Vector3 mousePosition;
-    private float moveSpeed = 1.0f;
-    private Tower tower;
-    private CanvasGroup canvasGroup;
+{ 
+    private Camera uiCamera;
 
     private void Awake()
     {
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
+        uiCamera = GameObject.Find("GameHandler/UI/UICamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, uiCamera, out localPoint);
+        transform.localPosition = localPoint;
     }
 }

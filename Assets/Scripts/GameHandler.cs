@@ -138,8 +138,7 @@ public class GameHandler : MonoBehaviour, IPointerClickHandler
             bIsBuyingTower = true;
             inventoryMenu.HideMenu();
 
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            followTower = Instantiate(GameAssets.Instance.dummyTower, mousePosition, Quaternion.identity, transform.Find("Background/PlayArea"));
+            followTower = Instantiate(GameAssets.Instance.dummyTower, Input.mousePosition, Quaternion.identity, transform.Find("UI/UICanvas"));
 
             ToggleButtons();
         }

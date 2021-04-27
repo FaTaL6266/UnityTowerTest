@@ -50,9 +50,10 @@ public class InventoryMenu : MonoBehaviour, IDropHandler
         this.inventory = GameHandler.Instance.inventory;
     }
 
-    public void ShowMenuWithTowerStats(Tower tower)
+    public void ShowMenuWithTowerStats(Tower towerToDisplay)
     {
-        this.tower = tower;
+        if (tower) tower.placement.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0f);
+        tower = towerToDisplay;
         bIsShowingTowerData = true;
         bIsVisible = true;
         healthText.text = "Health: " + tower.Health.ToString();
@@ -91,6 +92,7 @@ public class InventoryMenu : MonoBehaviour, IDropHandler
 
     public void HideMenu()
     {
+        if (tower) tower.placement.GetComponent<Image>().color = new Color(0f, 255f, 0f, 0f);
         this.tower = null;
         if (bIsVisible)
         {

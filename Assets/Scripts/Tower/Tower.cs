@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
@@ -33,7 +34,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     // Reference variables
     private Transform projectileSpawn;
     private GameObject projectile;
-    private Placement placement;
+    public Placement placement;
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -133,14 +134,14 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         if (health + repairAmount > maxHealth) health = maxHealth;
         else health += repairAmount;
 
-        if (inventoryMenu.bIsVisible) inventoryMenu.ShowMenuWithTowerStats(inventoryMenu.tower);
+        if (inventoryMenu.bIsVisible && inventoryMenu.tower) inventoryMenu.ShowMenuWithTowerStats(inventoryMenu.tower);
     }
 
     private void FireProjectile()
     {
         animator.SetTrigger("Attack");
         audioSource.PlayOneShot(GameAssets.Instance.towerFire);
-        GameObject spawnedProjectile = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity, GameObject.Find("GameHandler/Background/PlayArea").transform);
+        GameObject spawnedProjectile = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity, GameObject.Find("GameHandler/Background/PlayArea/Projectiles").transform);
         spawnedProjectile.GetComponent<Projectile>().SetProperties(projectileSpeed, physicalDamage, fireDamage, gameObject.transform.localScale);
         Invoke("FireProjectile", 200.0f / fireRate);
     }
@@ -162,6 +163,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             if (inventoryMenu.bIsVisible) inventoryMenu.HideMenu();
             placement.bIsPlacementOccupied = false;
+            placement.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0f);
             GameHandler.Instance.DecreaseTowerCost();
             audioSource.PlayOneShot(GameAssets.Instance.towerDeath);
             roundSpawning.OnRoundStart -= OnRoundStart;
@@ -194,6 +196,7 @@ public class Tower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             if (!GameHandler.Instance.bIsBuyingTower)
             {
                 manager.NewTowerSelected(this);
+                placement.GetComponent<Image>().color = new Color(0f, 255f, 0f, 0.3f);
             }
         }
     }
