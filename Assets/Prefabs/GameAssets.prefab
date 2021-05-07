@@ -159,7 +159,11 @@ MonoBehaviour:
       his war path.
   - enemyName: The Groog
     enemyImage: {fileID: 21300000, guid: f2a2cfd72823be7438c32f8cfacf6100, type: 3}
-    enemyDescription: Placeholder description for Groog.
+    enemyDescription: An anomalous creature with no traceable origins. Even amongst
+      the World-ender armies, it is considered to be a source of constant fear and
+      dread. Though not physically strong or resilient, the creature can egage at
+      both long and short ranges, making it quite versatile. Do not fight it unless
+      you have a plan (or a deathwish).
   enemyHurt: {fileID: 8300000, guid: 51ae20b72dbaa8e46b55e37a82fb9a9c, type: 3}
   enemyDeath: {fileID: 8300000, guid: 7b42c1efb6e03c847800c1eedebcb310, type: 3}
   itemPickup: {fileID: 8300000, guid: 619d87f7abe2f9b4ebe4a92d8b69a047, type: 3}
